@@ -1,6 +1,6 @@
 ﻿namespace LoyalCustomersManagament
 {
-    partial class Form1
+    partial class Form3
     {
         /// <summary>
         /// Required designer variable.
@@ -36,20 +36,20 @@
             this.btnThoat.Location = new System.Drawing.Point(12, 12);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(98, 42);
-            this.btnThoat.TabIndex = 2;
+            this.btnThoat.TabIndex = 0;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // Form1
+            // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(847, 527);
             this.Controls.Add(this.btnThoat);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Form3";
+            this.Text = "Form3";
             this.ResumeLayout(false);
 
         }
