@@ -29,10 +29,11 @@ namespace LoyalCustomersManagament
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<SanPham> sanPhams = new List<SanPham>();   
-            var connectionString = "mongodb://localhost:27017";
-            var client = new MongoClient(connectionString);
+            List<SanPham> sanPhams = new List<SanPham>();
+            String connectionString = "mongodb://localhost:27017";
+            MongoClient client = new MongoClient(connectionString);
             var server = client.GetServer();
+
             var db = server.GetDatabase("LoyalCustomersManagement");
             var collection = db.GetCollection<BsonDocument>("SanPham");
             foreach (BsonDocument document in collection.FindAll())
@@ -41,8 +42,12 @@ namespace LoyalCustomersManagament
                 string ten = document["TenSP"].AsString;
                 Int32 gia = document["Dongia"].AsInt32;
                 Int32 sl = document["Soluongton"].AsInt32;
-                string hang = document["Hang"].AsString;
-                SanPham sanPham = new SanPham(ma, ten,gia,sl,hang);
+                //string hang = document["Hang"].AsString;
+
+                BsonDocument Mota = document["Mota"].ToBsonDocument();
+                string hang = Mota["Hieunang"].AsString;
+
+                SanPham sanPham = new SanPham(ma, ten, gia, sl, hang);
                 sanPhams.Add(sanPham);
             }
             dataGridView1.DataSource = sanPhams;
