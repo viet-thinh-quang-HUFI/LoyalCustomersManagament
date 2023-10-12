@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using DAL;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Collections.ObjectModel;
+using Amazon.Runtime.Documents;
+using System.Xml.Linq;
 
 namespace BLL
 {
@@ -27,14 +30,32 @@ namespace BLL
                 sanPham.SoLuongTon = document["Soluongton"].AsInt32;
                 sanPham.Hang = document["Hang"].AsString;
 
-                BsonDocument Mota = document["Mota"].ToBsonDocument();
-                sanPham.KichThuoc = Mota["Kichthuong"].AsDouble;
-                sanPham.HieuNang = Mota["Hieunang"].AsString;
-                sanPham.TrongLuong = Mota["Trongluong"].AsInt32;
+                //BsonDocument Mota = document["Mota"].ToBsonDocument();
+                //sanPham.KichThuoc = Mota["Kichthuong"].AsDouble;
+                //sanPham.HieuNang = Mota["Hieunang"].AsString;
+                //sanPham.TrongLuong = Mota["Trongluong"].AsInt32;
 
                 sanPhams.Add(sanPham);
             }
             return sanPhams;
         }
+        public MoTa getMoTa(string maSP)
+        {
+            MoTa moTa = new MoTa();
+            IMongoCollection<BsonDocument> coll = SanPhamDAL.getMoTa();
+            var filter = Builders<BsonDocument>.Filter.Eq("MaSP", maSP);
+            var sp = coll.Find(filter).FirstOrDefault();
+            var document = sp["Mota"];
+            //Console.WriteLine(document.ToString());
+            if (document != null)
+            {
+                moTa.HieuNang = document["Hieunang"].AsString;
+                moTa.KichThuoc = document["Kichthuong"].AsDouble;
+                moTa.TrongLuong = document["Trongluong"].AsInt32;
+                //Console.WriteLine(moTa.HieuNang.ToString());
+            }
+            return moTa;
+        }
+       
     }
 }

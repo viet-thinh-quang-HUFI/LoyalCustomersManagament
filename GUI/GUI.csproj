@@ -32,11 +32,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BLL">
       <HintPath>..\BLL\bin\Debug\BLL.dll</HintPath>
     </Reference>
-    <Reference Include="DTO">
+    <Reference Include="DTO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DTO\bin\Debug\DTO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
