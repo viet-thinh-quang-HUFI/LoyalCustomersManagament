@@ -42,5 +42,18 @@ namespace GUI
             txtSLT.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             txtHang.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
         }
+
+        //test TimestampToDateTime
+        private DateTime TimestampToDateTime(long timestamp)
+        {
+            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return origin.AddSeconds(timestamp);
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            DateTime d = TimestampToDateTime(1665592827);
+            txtMa.Text = d.ToString();
+        }
     }
 }
