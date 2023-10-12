@@ -1,0 +1,6 @@
+D:\HK1_2023-2024(HK7)\nosql\doan\DTO\bin\Debug\DTO.dll
+D:\HK1_2023-2024(HK7)\nosql\doan\DTO\bin\Debug\DTO.pdb
+D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.dll
+D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.pdb
