@@ -1,7 +1,5 @@
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\DAL.dll
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\DAL.pdb
-D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\DTO.dll
-D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\DTO.pdb
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\obj\Debug\DAL.csproj.CopyComplete
@@ -52,3 +50,5 @@ D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\System.Security.AccessControl.xml
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\System.Security.Principal.Windows.xml
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\System.Text.Encoding.CodePages.xml
 D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\DTO.dll
+D:\HK1_2023-2024(HK7)\nosql\doan\DAL\bin\Debug\DTO.pdb

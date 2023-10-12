@@ -17,5 +17,10 @@ namespace DAL
             MongoCollection<BsonDocument> collection = KetNoi.GetAllCollection("SanPham");
             return collection;
         }
+        public IMongoCollection<BsonDocument> getMoTa()
+        {
+            IMongoCollection<BsonDocument> collection = KetNoi.getMoTa("SanPham");
+            return collection;
+        }
     }
 }
