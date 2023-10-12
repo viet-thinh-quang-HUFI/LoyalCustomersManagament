@@ -1,0 +1,11 @@
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\bin\Debug\BLL.dll
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\bin\Debug\BLL.pdb
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\bin\Debug\DAL.dll
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\bin\Debug\DTO.dll
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\bin\Debug\DAL.pdb
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\bin\Debug\DTO.pdb
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\obj\Debug\BLL.dll
+D:\HK1_2023-2024(HK7)\nosql\doan\BLL\obj\Debug\BLL.pdb

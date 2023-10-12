@@ -41,14 +41,16 @@
     <Reference Include="AWSSDK.SecurityToken, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.SecurityToken.3.7.100.14\lib\net45\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
-    <Reference Include="BLL">
-      <HintPath>..\BLL\bin\Debug\net6.0\BLL.dll</HintPath>
+    <Reference Include="BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BLL\bin\Debug\BLL.dll</HintPath>
     </Reference>
     <Reference Include="DnsClient, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
       <HintPath>..\packages\DnsClient.1.6.1\lib\net471\DnsClient.dll</HintPath>
     </Reference>
-    <Reference Include="DTO">
-      <HintPath>..\DTO\bin\Debug\net6.0\DTO.dll</HintPath>
+    <Reference Include="DTO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DTO\bin\Debug\DTO.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>

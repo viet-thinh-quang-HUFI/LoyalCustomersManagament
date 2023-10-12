@@ -12,7 +12,7 @@ namespace GUI
 {
     public partial class frmSanPham : Form
     {
-
+        //List<SanPham> sanPhams = new List<SanPham>();
         public frmSanPham()
         {
             InitializeComponent();
