@@ -4,3 +4,9 @@ D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.csproj.AssemblyReference.cach
 D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.dll
 D:\HK1_2023-2024(HK7)\nosql\doan\DTO\obj\Debug\DTO.pdb
+C:\Users\PC\Desktop\LoyalCustomersManagament\DTO\bin\Debug\DTO.dll
+C:\Users\PC\Desktop\LoyalCustomersManagament\DTO\bin\Debug\DTO.pdb
+C:\Users\PC\Desktop\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\LoyalCustomersManagament\DTO\obj\Debug\DTO.dll
+C:\Users\PC\Desktop\LoyalCustomersManagament\DTO\obj\Debug\DTO.pdb
