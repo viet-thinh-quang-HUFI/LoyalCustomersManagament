@@ -28,7 +28,7 @@ namespace BLL
                 sanPham.TenSP = document["TenSP"].AsString;
                 sanPham.DonGia = document["Dongia"].AsInt32;
                 sanPham.SoLuongTon = document["Soluongton"].AsInt32;
-                sanPham.Hang = document["Hang"].AsString;
+                sanPham.Hang = document["Mahang"].AsString;
 
                 //BsonDocument Mota = document["Mota"].ToBsonDocument();
                 //sanPham.KichThuoc = Mota["Kichthuong"].AsDouble;
@@ -50,7 +50,7 @@ namespace BLL
             if (document != null)
             {
                 moTa.HieuNang = document["Hieunang"].AsString;
-                moTa.KichThuoc = document["Kichthuong"].AsDouble;
+                moTa.KichThuoc = document["Kichthuoc"].AsDouble;
                 moTa.TrongLuong = document["Trongluong"].AsInt32;
                 //Console.WriteLine(moTa.HieuNang.ToString());
             }
