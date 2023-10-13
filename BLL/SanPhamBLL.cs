@@ -10,6 +10,7 @@ using MongoDB.Bson;
 using System.Collections.ObjectModel;
 using Amazon.Runtime.Documents;
 using System.Xml.Linq;
+using MongoDB.Driver.Builders;
 
 namespace BLL
 {
@@ -45,17 +46,33 @@ namespace BLL
             IMongoCollection<BsonDocument> coll = SanPhamDAL.getMoTa();
             var filter = Builders<BsonDocument>.Filter.Eq("MaSP", maSP);
             var sp = coll.Find(filter).FirstOrDefault();
-            var document = sp["Mota"];
-            //Console.WriteLine(document.ToString());
-            if (document != null)
+            try
             {
-                moTa.HieuNang = document["Hieunang"].AsString;
-                moTa.KichThuoc = document["Kichthuoc"].AsDouble;
-                moTa.TrongLuong = document["Trongluong"].AsInt32;
-                //Console.WriteLine(moTa.HieuNang.ToString());
+                var document = sp["Mota"];
+                //Console.WriteLine(document.ToString());
+                if (document != null)
+                {
+                    moTa.HieuNang = document["Hieunang"].AsString;
+                    moTa.KichThuoc = document["Kichthuoc"].AsDouble;
+                    moTa.TrongLuong = document["Trongluong"].AsInt32;
+                    //Console.WriteLine(moTa.HieuNang.ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                return null;
             }
             return moTa;
         }
-       
+        public void them(SanPham s)
+        {
+            BsonDocument document = new BsonDocument();
+            document.Add("MaSP", s.MaSP);
+            document.Add("TenSP", s.TenSP);
+            document.Add("Dongia", s.DonGia);
+            document.Add("Soluongton", s.SoLuongTon);
+            document.Add("Mahang", s.Hang);
+            SanPhamDAL.them(document);
+        }
     }
 }
