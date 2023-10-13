@@ -161,7 +161,7 @@
             // 
             this.dtNgayBD.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayBD.Location = new System.Drawing.Point(1155, 108);
+            this.dtNgayBD.Location = new System.Drawing.Point(1184, 108);
             this.dtNgayBD.Name = "dtNgayBD";
             this.dtNgayBD.Size = new System.Drawing.Size(200, 30);
             this.dtNgayBD.TabIndex = 8;
@@ -190,7 +190,7 @@
             // 
             this.dtNgayKT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayKT.Location = new System.Drawing.Point(1155, 184);
+            this.dtNgayKT.Location = new System.Drawing.Point(1184, 184);
             this.dtNgayKT.Name = "dtNgayKT";
             this.dtNgayKT.Size = new System.Drawing.Size(200, 30);
             this.dtNgayKT.TabIndex = 8;
