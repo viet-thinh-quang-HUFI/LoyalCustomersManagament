@@ -64,6 +64,7 @@ namespace GUI
         {
             if (currentBtn != null)
             {
+                Console.WriteLine("Quang dz");
                 currentBtn.BackColor = Color.FromArgb(31, 30, 68);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
