@@ -274,3 +274,5 @@ F:\DoAnNosql\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CoreCompileInputs
 F:\DoAnNosql\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CopyComplete
 F:\DoAnNosql\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 F:\DoAnNosql\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
+C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmKH.resources
