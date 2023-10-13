@@ -44,11 +44,11 @@ namespace GUI
         }
 
         //test TimestampToDateTime
-        private DateTime TimestampToDateTime(long timestamp)
-        {
-            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            return origin.AddSeconds(timestamp);
-        }
+        //private DateTime TimestampToDateTime(long timestamp)
+        //{
+        //    DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        //    return origin.AddSeconds(timestamp);
+        //}
 
         private void btnThem_Click(object sender, EventArgs e)
         {
