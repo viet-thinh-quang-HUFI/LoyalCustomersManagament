@@ -103,3 +103,4 @@ F:\DoAnNosql\DoAn\GUI\obj\Debug\GUI.csproj.CopyComplete
 F:\DoAnNosql\DoAn\GUI\obj\Debug\GUI.exe
 F:\DoAnNosql\DoAn\GUI\obj\Debug\GUI.pdb
 F:\DoAnNosql\DoAn\GUI\obj\Debug\GUI.frmThongKe.resources
+F:\DoAnNosql\DoAn\GUI\bin\Debug\FontAwesome.Sharp.dll
