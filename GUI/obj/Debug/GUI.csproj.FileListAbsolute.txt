@@ -109,7 +109,6 @@ D:\HK1_2023-2024(HK7)\nosql\doan\GUI\obj\Debug\GUI.frmThongKe.resources
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\GUI.exe.config
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\GUI.exe
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\GUI.pdb
-C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\BLL.dll
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\DTO.dll
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\DAL.dll
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.dll
@@ -160,3 +159,5 @@ C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CoreCompil
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
+C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmLoading.resources
+C:\Users\PC\Desktop\LoyalCustomersManagament\GUI\bin\Debug\BLL.dll
