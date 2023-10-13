@@ -66,6 +66,7 @@ namespace GUI
             {
                 Console.WriteLine("Quang dz");
                 Console.WriteLine("Quang dz123");
+                Console.WriteLine("Viet dz");
                 currentBtn.BackColor = Color.FromArgb(11, 30, 68);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
