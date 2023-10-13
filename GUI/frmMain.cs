@@ -53,7 +53,7 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OpenForm(new frmKhachHang());
+            OpenForm(new frmKH());
             hideMenu();
         }
         private void button4_Click(object sender, EventArgs e)
@@ -97,5 +97,9 @@ namespace GUI
             this.Size = new Size(w, h);
         }
 
+        private void panelForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
