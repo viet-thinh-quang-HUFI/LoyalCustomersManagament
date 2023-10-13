@@ -12,17 +12,27 @@ namespace GUI
 {
     public partial class frmLogin : Form
     {
+
         public frmLogin()
         {
             InitializeComponent();
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmLoading f = new frmLoading();
+            f.Show();
             this.Hide();
-            frmMain main = new frmMain();
-            main.Show();
+        }
+
+        private void btnForgotPassword_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

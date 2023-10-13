@@ -33,9 +33,17 @@ namespace GUI
             string ma = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             moTa = SanPhamBLL.getMoTa(ma);
             //Console.WriteLine(moTa.HieuNang.ToString());
-            txtHieuNang.Text = moTa.HieuNang.ToString();
-            txtKichThuoc.Text = moTa.KichThuoc.ToString();
-            txtTrongLuong.Text = moTa.TrongLuong.ToString();
+            if(moTa != null) {
+                txtHieuNang.Text = moTa.HieuNang.ToString();
+                txtKichThuoc.Text = moTa.KichThuoc.ToString();
+                txtTrongLuong.Text = moTa.TrongLuong.ToString();
+            }
+            else
+            {
+                txtHieuNang.Text = "";
+                txtKichThuoc.Text = "";
+                txtTrongLuong.Text = "";
+            }
             txtMa.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txtTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtGia.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -44,16 +52,20 @@ namespace GUI
         }
 
         //test TimestampToDateTime
-        private DateTime TimestampToDateTime(long timestamp)
-        {
-            DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-            return origin.AddSeconds(timestamp);
-        }
+        //private DateTime TimestampToDateTime(long timestamp)
+        //{
+        //    DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        //    return origin.AddSeconds(timestamp);
+        //}
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DateTime d = TimestampToDateTime(1665592827);
-            txtMa.Text = d.ToString();
+            //DateTime d = TimestampToDateTime(1665592827);
+            //txtMa.Text = d.ToString();
+
+            SanPham s = new SanPham(txtMa.Text, txtTen.Text,Convert.ToInt32(txtGia.Text), Convert.ToInt32(txtSLT.Text), txtHang.Text);
+            SanPhamBLL.them(s);
+
         }
     }
 }

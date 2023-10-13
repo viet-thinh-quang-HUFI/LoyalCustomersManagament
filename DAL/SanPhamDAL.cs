@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using Amazon.Runtime.Documents;
+
 namespace DAL
 {
     public class SanPhamDAL
@@ -21,6 +23,11 @@ namespace DAL
         {
             IMongoCollection<BsonDocument> collection = KetNoi.getMoTa("SanPham");
             return collection;
+        }
+        public void them(BsonDocument document)
+        {
+            MongoCollection<BsonDocument> collection = KetNoi.GetAllCollection("SanPham");
+            collection.Insert(document);
         }
     }
 }
