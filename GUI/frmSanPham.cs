@@ -52,8 +52,8 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            DateTime d = TimestampToDateTime(1665592827);
-            txtMa.Text = d.ToString();
+            //DateTime d = TimestampToDateTime(1665592827);
+            //txtMa.Text = d.ToString();
         }
     }
 }
