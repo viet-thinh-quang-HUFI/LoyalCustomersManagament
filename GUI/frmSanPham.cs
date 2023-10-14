@@ -104,5 +104,26 @@ namespace GUI
 
             //SanPhamBLL.GetMoTa("");
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string ma = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            if (ma == "")
+            {
+                MessageBox.Show("Chưa chọn khách hàng cần xóa");
+            }
+            else
+            {
+                SanPhamBLL.Xoa(ma);
+                dataGridView1.DataSource = SanPhamBLL.GetSanPham();
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string kq = SanPhamBLL.Sua(txtMa.Text, txtTen.Text, txtGia.Text, txtSLT.Text, txtHang.Text);
+            MessageBox.Show(kq);
+            dataGridView1.DataSource = SanPhamBLL.GetSanPham();
+        }
     }
 }

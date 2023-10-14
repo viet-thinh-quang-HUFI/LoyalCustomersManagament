@@ -87,6 +87,45 @@ namespace BLL
             collection.DeleteOne(deleteFilter);
             return "Xóa thành công";
         }
+        public string Sua(string ma, string ten, string dongia, string sl, string hang)
+        {
+            if (ma == "")
+            {
+                return "Chưa nhập mã! ";
+            }
+            if (ten == "")
+            {
+                return "Chưa nhập tên! ";
+            }
+            if (dongia == "")
+            {
+                return "Chưa nhập đơn giá! ";
+            }
+            if (sl == "")
+            {
+                return "Chưa nhập số lượng tồn! ";
+            }
+            if (hang == "")
+            {
+                return "Chưa nhập hãng! ";
+            }
+            if (IsNumber(sl) == false || Convert.ToInt32(sl) < 0)
+            {
+                return "Nhập số lượng tồn sai";
+            }
+            if (IsNumber(dongia) == false || Convert.ToInt32(dongia) < 0)
+            {
+                return "Nhập đơn giá sai ";
+            }
+            var filter = Builders<SanPham>.Filter.Eq(a => a.MaSP, ma);
+            var update = Builders<SanPham>.Update
+                .Set(a => a.TenSP, ten)
+                .Set(a => a.Dongia, Convert.ToInt32(dongia))
+                .Set(a => a.Soluongton, Convert.ToInt32(sl))
+                .Set(a => a.Mahang, hang);
+            collection.UpdateOne(filter, update);
+            return "Sửa thành công";
+        }
         public bool IsNumber(string pText)
         {
             Regex regex = new Regex(@"^[-+]?[0-9]*.?[0-9]+$");

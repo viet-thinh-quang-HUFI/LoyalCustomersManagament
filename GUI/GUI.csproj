@@ -169,6 +169,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmKHtheoNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKHtheoNV.Designer.cs">
+      <DependentUpon>frmKHtheoNV.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmKHtheoNV.resx">
+      <DependentUpon>frmKHtheoNV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
     </EmbeddedResource>
