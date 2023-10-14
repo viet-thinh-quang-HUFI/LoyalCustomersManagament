@@ -12,9 +12,9 @@ namespace DAL
     {
         KetNoi KetNoi = new KetNoi();
         public KhachHangDAL() { }
-        public MongoCollection<BsonDocument> getKhachHang()
+        public IMongoCollection<BsonDocument> getKhachHang()
         {
-            MongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection("KhachHang");
+            IMongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection<BsonDocument>("KhachHang");
             return collection;
         }
     }

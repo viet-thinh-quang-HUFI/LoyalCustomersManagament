@@ -13,24 +13,21 @@ namespace DAL
         private static String connectionString = "mongodb://localhost:27017";
         private static String databaseName = "LoyalCustomersManagement";
 
-        private MongoClient _client;
-        private MongoServer _server;
-        private MongoDatabase _database;
+        private IMongoClient _client;
+        private IMongoDatabase _database;
 
-        public MongoClient Client { get => _client; set => _client = value; }
-        public MongoServer Server { get => _server; set => _server = value; }
-        public MongoDatabase Database { get => _database; set => _database = value; }
+        public IMongoClient Client { get => _client; set => _client = value; }
+        public IMongoDatabase Database { get => _database; set => _database = value; }
 
         public KetNoi()
         {
             Client = new MongoClient(connectionString);
-            Server = Client.GetServer();
-            Database = Server.GetDatabase(databaseName);
+            Database = Client.GetDatabase(databaseName);
         }
 
-        public MongoCollection<BsonDocument> GetCollection(string nameCollection)
+        public IMongoCollection<BsonDocument> GetCollection(string nameCollection)
         {
-            MongoCollection<BsonDocument> collection = Database.GetCollection<BsonDocument>(nameCollection);
+            IMongoCollection<BsonDocument> collection = Database.GetCollection<BsonDocument>(nameCollection);
             return collection;
         }
     }

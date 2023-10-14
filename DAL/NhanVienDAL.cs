@@ -13,9 +13,9 @@ namespace DAL
         KetNoi conn = new KetNoi();
         public NhanVienDAL() { }
 
-        public MongoCollection<BsonDocument> GetNhanVien()
+        public IMongoCollection<BsonDocument> GetNhanVien()
         {
-            MongoCollection<BsonDocument> collection = conn.Database.GetCollection("NhanVien");
+            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("NhanVien");
             return collection;
         }
     }

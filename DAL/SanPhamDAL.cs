@@ -15,22 +15,22 @@ namespace DAL
         KetNoi conn = new KetNoi();
         public SanPhamDAL() { }
 
-        public MongoCollection<BsonDocument> GetMoTa()
+        public IMongoCollection<BsonDocument> GetMoTa()
         {
-            MongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("Mota");
+            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("Mota");
             return collection;
         }
 
-        public MongoCollection<BsonDocument> GetSanPham()
+        public IMongoCollection<BsonDocument> GetSanPham()
         {
-            MongoCollection<BsonDocument> collection = conn.Database.GetCollection("SanPham");
+            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("SanPham");
             return collection;
         }
 
         public void Them(BsonDocument document)
         {
-            MongoCollection<BsonDocument> collection = conn.Database.GetCollection("SanPham");
-            collection.Insert(document);
+            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("SanPham");
+            collection.InsertOne(document);
         }
     }
 }

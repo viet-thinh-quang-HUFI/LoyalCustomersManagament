@@ -25,23 +25,29 @@ namespace GUI
             nhanVien.EmailNV = tbAccountName.Text;
             nhanVien.Matkhau = tbPassword.Text;
 
-            Boolean result = nhanVienBLL.Login(nhanVien);
+            Byte result = nhanVienBLL.Login(nhanVien);
 
-            if(result == true)
+            if(result == 0)
             {
                 frmLoading f = new frmLoading();
                 f.Show();
                 this.Hide();
             }
+            else if (result == 1)
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!");
+            }
             else
             {
-                MessageBox.Show("Tài khoản mật khẩu không hợp lệ!");
+                MessageBox.Show("Tài khoản/mật khẩu không hợp lệ!");
             }
         }
 
         private void btnForgotPassword_Click(object sender, EventArgs e)
         {
-
+            frmResetPassword f = new frmResetPassword();
+            f.Show();
+            this.Hide();
         }
     }
 }
