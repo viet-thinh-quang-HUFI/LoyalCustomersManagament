@@ -430,7 +430,6 @@ F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Deb
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\System.Threading.Tasks.Extensions.xml
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
-F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe.config
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmLoading.resources
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmLogin.resources
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmMain.resources
@@ -584,3 +583,19 @@ D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\mongocrypt.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\AWSSDK.SecurityToken.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Win32.Registry.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\System.Security.AccessControl.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\System.Security.Principal.Windows.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\System.Text.Encoding.CodePages.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\AWSSDK.SecurityToken.pdb
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\AWSSDK.SecurityToken.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\DTO.dll.config
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Win32.Registry.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\System.Security.AccessControl.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\System.Security.Principal.Windows.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\System.Text.Encoding.CodePages.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmKHtheoNV.resources

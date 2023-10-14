@@ -63,7 +63,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 652);
             this.panel1.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.panel3.Controls.Add(this.btnClose);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(400, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(600, 652);
             this.panel3.TabIndex = 1;
@@ -89,8 +89,9 @@
             this.btnForgotPassword.FlatAppearance.BorderSize = 0;
             this.btnForgotPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnForgotPassword.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForgotPassword.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnForgotPassword.Location = new System.Drawing.Point(251, 414);
-            this.btnForgotPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnForgotPassword.Margin = new System.Windows.Forms.Padding(4);
             this.btnForgotPassword.Name = "btnForgotPassword";
             this.btnForgotPassword.Size = new System.Drawing.Size(144, 28);
             this.btnForgotPassword.TabIndex = 12;
@@ -106,7 +107,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(20, 406);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(197, 43);
             this.btnLogin.TabIndex = 11;
@@ -120,7 +121,7 @@
             this.panel5.Controls.Add(this.tbPassword);
             this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Location = new System.Drawing.Point(0, 308);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(600, 55);
             this.panel5.TabIndex = 10;
@@ -131,7 +132,7 @@
             this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.tbPassword.Location = new System.Drawing.Point(71, 18);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(493, 21);
             this.tbPassword.TabIndex = 11;
@@ -141,7 +142,7 @@
             // 
             this.pictureBox4.Image = global::GUI.Properties.Resources.ic_lock;
             this.pictureBox4.Location = new System.Drawing.Point(20, 14);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -154,7 +155,7 @@
             this.panel4.Controls.Add(this.tbAccountName);
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Location = new System.Drawing.Point(0, 236);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(600, 55);
             this.panel4.TabIndex = 3;
@@ -165,7 +166,7 @@
             this.tbAccountName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAccountName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.tbAccountName.Location = new System.Drawing.Point(71, 18);
-            this.tbAccountName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAccountName.Margin = new System.Windows.Forms.Padding(4);
             this.tbAccountName.Name = "tbAccountName";
             this.tbAccountName.Size = new System.Drawing.Size(493, 21);
             this.tbAccountName.TabIndex = 10;
@@ -174,7 +175,7 @@
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources.ic_account;
             this.pictureBox3.Location = new System.Drawing.Point(20, 14);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -202,7 +203,7 @@
             this.btnClose.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(543, 4);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(53, 49);
             this.btnClose.TabIndex = 0;
@@ -221,7 +222,7 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(400, 652);
             this.panel2.TabIndex = 0;
@@ -290,7 +291,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.logo;
             this.pictureBox1.Location = new System.Drawing.Point(72, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(267, 246);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

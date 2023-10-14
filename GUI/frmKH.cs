@@ -19,16 +19,17 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void KhachHang_Load(object sender, EventArgs e)
+        private void load()
         {
             dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
+            dataGridView1.Columns["id"].Visible = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             string kq = KhachHangBLL.Them(txtMa.Text,txtTen.Text,txtTuoi.Text,txtSDT.Text,txtEmail.Text,txtDiem.Text);
             MessageBox.Show(kq);
-            dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
+            load();
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -51,7 +52,7 @@ namespace GUI
             else
             {
                 KhachHangBLL.Xoa(ma);
-                dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
+                load();
             }
         }
 
@@ -59,7 +60,12 @@ namespace GUI
         {
             string kq = KhachHangBLL.Sua(txtMa.Text, txtTen.Text, txtTuoi.Text, txtSDT.Text, txtEmail.Text, txtDiem.Text);
             MessageBox.Show(kq);
-            dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
+            load();
+        }
+
+        private void frmKH_Load(object sender, EventArgs e)
+        {
+            load();
         }
     }
 }
