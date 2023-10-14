@@ -96,5 +96,18 @@ namespace BLL
                 return 2;
             }
         }
+        public List<KhachHang> GetKHtheoNV(string mail)
+        {
+            var filter = Builders<NhanVien>.Filter.Eq(a => a.EmailNV, mail);
+            var nv = nhanVienDAL.GetNhanVien().Find(filter).SingleOrDefault().MaKH;
+            KhachHangBLL khachHangBLL = new KhachHangBLL();
+            List<KhachHang> khachHangs = new List<KhachHang>(); 
+            for (int i = 0; i < nv.Count; i++)
+            {
+                KhachHang kh = khachHangBLL.GetMotKH(nv[i]);
+                khachHangs.Add(kh);
+            }
+            return khachHangs;
+        }
     }
 }

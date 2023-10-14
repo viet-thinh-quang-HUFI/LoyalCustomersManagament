@@ -19,13 +19,13 @@ namespace BLL
             collection = sanPhamDAL.GetSanPham();
         }
 
-        public List<SanPham> GetSanPham()
+        public IMongoCollection<SanPham> GetSanPham()
         {
             var filter = Builders<SanPham>.Filter.Empty;
             var sanPhams = sanPhamDAL.GetSanPham()
                 .Find(filter)
                 .ToList();
-            return sanPhams;
+            return sanPhamDAL.GetSanPham();
         }
         public MoTa GetMoTa(string maSP)
         {
@@ -86,6 +86,45 @@ namespace BLL
             var deleteFilter = Builders<SanPham>.Filter.Eq(a => a.MaSP, ma);
             collection.DeleteOne(deleteFilter);
             return "Xóa thành công";
+        }
+        public string Sua(string ma, string ten, string dongia, string sl, string hang)
+        {
+            if (ma == "")
+            {
+                return "Chưa nhập mã! ";
+            }
+            if (ten == "")
+            {
+                return "Chưa nhập tên! ";
+            }
+            if (dongia == "")
+            {
+                return "Chưa nhập đơn giá! ";
+            }
+            if (sl == "")
+            {
+                return "Chưa nhập số lượng tồn! ";
+            }
+            if (hang == "")
+            {
+                return "Chưa nhập hãng! ";
+            }
+            if (IsNumber(sl) == false || Convert.ToInt32(sl) < 0)
+            {
+                return "Nhập số lượng tồn sai";
+            }
+            if (IsNumber(dongia) == false || Convert.ToInt32(dongia) < 0)
+            {
+                return "Nhập đơn giá sai ";
+            }
+            var filter = Builders<SanPham>.Filter.Eq(a => a.MaSP, ma);
+            var update = Builders<SanPham>.Update
+                .Set(a => a.TenSP, ten)
+                .Set(a => a.Dongia, Convert.ToInt32(dongia))
+                .Set(a => a.Soluongton, Convert.ToInt32(sl))
+                .Set(a => a.Mahang, hang);
+            collection.UpdateOne(filter, update);
+            return "Sửa thành công";
         }
         public bool IsNumber(string pText)
         {
