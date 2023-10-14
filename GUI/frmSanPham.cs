@@ -63,9 +63,9 @@ namespace GUI
             //DateTime d = TimestampToDateTime(1665592827);
             //txtMa.Text = d.ToString();
 
-            //SanPham s = new SanPham(txtMa.Text, txtTen.Text,Convert.ToInt32(txtGia.Text), Convert.ToInt32(txtSLT.Text), txtHang.Text);
-            //SanPhamBLL.Them(s);
-
+            string kq=  SanPhamBLL.Them(txtMa.Text, txtTen.Text,txtGia.Text, txtSLT.Text, txtHang.Text);
+            MessageBox.Show(kq);
+            dataGridView1.DataSource = SanPhamBLL.GetSanPham();
         }
     }
 }

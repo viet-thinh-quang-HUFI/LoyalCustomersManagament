@@ -5,6 +5,7 @@ using System.Linq;
 using DAL;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Text.RegularExpressions;
 
 namespace BLL
 {
@@ -43,15 +44,53 @@ namespace BLL
             }
             return moTa;
         }
-        public void Them(SanPham s)
+        public string Them(string ma, string ten, string dongia, string sl, string hang)
         {
-            //BsonDocument document = new BsonDocument();
-            //document.Add("MaSP", s.MaSP);
-            //document.Add("TenSP", s.TenSP);
-            //document.Add("Dongia", s.DonGia);
-            //document.Add("Soluongton", s.SoLuongTon);
-            //document.Add("Mahang", s.Hang);
-            //sanPhamDAL.Them(document);
+            if (ma == "")
+            {
+                return "Chưa nhập mã! ";
+            }
+            if (ten == "")
+            {
+                return "Chưa nhập tên! ";
+            }
+            if (dongia == "")
+            {
+                return "Chưa nhập đơn giá! ";
+            }
+            if (sl == "")
+            {
+                return "Chưa nhập số lượng tồn! ";
+            }
+            if (hang == "")
+            {
+                return "Chưa nhập hãng! ";
+            }
+            if (IsNumber(sl) == false || Convert.ToInt32(sl) < 0)
+            {
+                return "Nhập số lượng tồn sai";
+            }
+            if (IsNumber(dongia) == false || Convert.ToInt32(dongia) < 0)
+            {
+                return "Nhập đơn giá sai ";
+            }
+            var sp = new SanPham
+            {
+                MaSP = ma, TenSP = ten, Dongia = Convert.ToInt32(dongia), Soluongton = Convert.ToInt32(sl), Mahang = hang
+            };
+            sanPhamDAL.Them(sp);
+            return "Thêm thành công";
+        }
+        public string Xoa(string ma)
+        {
+            var deleteFilter = Builders<SanPham>.Filter.Eq(a => a.MaSP, ma);
+            collection.DeleteOne(deleteFilter);
+            return "Xóa thành công";
+        }
+        public bool IsNumber(string pText)
+        {
+            Regex regex = new Regex(@"^[-+]?[0-9]*.?[0-9]+$");
+            return regex.IsMatch(pText);
         }
     }
 }

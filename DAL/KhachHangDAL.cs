@@ -23,10 +23,10 @@ namespace DAL
             return collection;
         }
 
-        public void Them(BsonDocument document)
+        public void Them(KhachHang kh)
         {
-            //IMongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection<BsonDocument>("KhachHang");
-            //collection.InsertOne(document);
+            collection.InsertOne(kh);
         }
+
     }
 }
