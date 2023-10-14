@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using BLL;
 using DTO;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using static MongoDB.Driver.WriteConcern;
 
 namespace GUI
 {
