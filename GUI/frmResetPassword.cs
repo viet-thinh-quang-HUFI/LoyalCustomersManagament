@@ -1,16 +1,6 @@
 ﻿using BLL;
-using DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
-using MongoDB.Bson;
 
 namespace GUI
 {
@@ -40,20 +30,15 @@ namespace GUI
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            List<String> listKH = new List<String>();
-            listKH.Add("KH003");
-            listKH.Add("KH004");
-
-            NhanVien nhanVien = new NhanVien();
-            nhanVien.EmailNV = tbAccountName.Text;
-            NhanVien document = nhanVienBLL.CheckExistedAccountName(nhanVien);
-            if (document == null)
+            String emailNV = tbAccountName.Text;
+            String maNV = nhanVienBLL.CheckExistedAccountName(emailNV);
+            if (maNV == null)
             {
                 MessageBox.Show("Tài khoản không tồn tại!");
             }
             else
             {
-                Byte result = nhanVienBLL.ResetPassword(document, tbRepassword.Text, cboMaNV.SelectedValue.ToString());
+                Byte result = nhanVienBLL.ResetPassword(maNV, tbRepassword.Text, cboMaNV.SelectedValue.ToString());
                 if (result == 1)
                 {
                     MessageBox.Show("Vui lòng nhập đủ thông tin!");
@@ -65,6 +50,9 @@ namespace GUI
                 else
                 {
                     MessageBox.Show("Đổi mật khẩu thành công!");
+                    this.Close();
+                    frmLogin login = new frmLogin();
+                    login.ShowDialog();
                 }
             }
         }
