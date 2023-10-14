@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace GUI
 {
     public partial class frmThongKe : Form
     {
+        HoaDonBLL hoaDonBLL = new HoaDonBLL();
         public frmThongKe()
         {
             InitializeComponent();
         }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            DateTime ngaybd = dtNgayBD.Value.Date;
+            DateTime ngaykt = dtNgayKT.Value.Date;
+            if(ngaybd > ngaykt)
+            {
+                MessageBox.Show("Ngày bắt đầu phải trước ngày kết thúc");
+            }
+            else
+            {
+                dataGridView1.DataSource = hoaDonBLL.GetHoaDon(ngaybd, ngaykt);
+            }
+        }
+
+
     }
 }

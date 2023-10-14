@@ -15,7 +15,7 @@ namespace DTO
         private Int32 _tuoi;
         private String _sdt;
         private String _email;
-        private Int32 _diem;
+        private Double _diem;
         private List<String> _hoaDon;
         public KhachHang() { }
         [BsonId, BsonElement("_id"), BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
@@ -36,8 +36,8 @@ namespace DTO
         [BsonElement("EmailKH"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
         public string EmailKH { get => _email; set => _email = value; }
 
-        [BsonElement("Diem"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
-        public int Diem { get => _diem; set => _diem = value; }
+        [BsonElement("Diem"), BsonRepresentation(MongoDB.Bson.BsonType.Double)]
+        public Double Diem { get => _diem; set => _diem = value; }
         
         [BsonElement("Hoadon")]
         public List<string> Hoadon { get => _hoaDon; set => _hoaDon = value; }
