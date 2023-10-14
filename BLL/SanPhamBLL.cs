@@ -68,15 +68,15 @@ namespace BLL
             }
             return result;
         }
-        //public void Them(SanPham s)
-        //{
-        //    BsonDocument document = new BsonDocument();
-        //    document.Add("MaSP", s.MaSP);
-        //    document.Add("TenSP", s.TenSP);
-        //    document.Add("Dongia", s.DonGia);
-        //    document.Add("Soluongton", s.SoLuongTon);
-        //    document.Add("Mahang", s.Hang);
-        //    SanPhamDAL.Them(document);
-        //}
+        public void Them(SanPham s)
+        {
+            BsonDocument document = new BsonDocument();
+            document.Add("MaSP", s.MaSP);
+            document.Add("TenSP", s.TenSP);
+            document.Add("Dongia", s.DonGia);
+            document.Add("Soluongton", s.SoLuongTon);
+            document.Add("Mahang", s.Hang);
+            sanPhamDAL.Them(document);
+        }
     }
 }

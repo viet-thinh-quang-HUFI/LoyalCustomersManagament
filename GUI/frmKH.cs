@@ -30,5 +30,15 @@ namespace GUI
             MessageBox.Show(kq);
             dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
         }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtMa.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtTuoi.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtSDT.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtEmail.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtDiem.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+        }
     }
 }
