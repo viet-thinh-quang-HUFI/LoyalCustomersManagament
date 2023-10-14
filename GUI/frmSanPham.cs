@@ -23,8 +23,8 @@ namespace GUI
         private void frmSanPham_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = SanPhamBLL.GetSanPham();
-            //SanPhamBLL.getMoTa();
-            
+            SanPhamBLL.GetMoTa("");
+
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -33,7 +33,8 @@ namespace GUI
             string ma = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             moTa = SanPhamBLL.GetMoTa(ma);
             //Console.WriteLine(moTa.HieuNang.ToString());
-            if(moTa != null) {
+            if (moTa != null)
+            {
                 txtHieuNang.Text = moTa.HieuNang.ToString();
                 txtKichThuoc.Text = moTa.KichThuoc.ToString();
                 txtTrongLuong.Text = moTa.TrongLuong.ToString();
@@ -63,8 +64,8 @@ namespace GUI
             //DateTime d = TimestampToDateTime(1665592827);
             //txtMa.Text = d.ToString();
 
-            SanPham s = new SanPham(txtMa.Text, txtTen.Text,Convert.ToInt32(txtGia.Text), Convert.ToInt32(txtSLT.Text), txtHang.Text);
-            SanPhamBLL.Them(s);
+            //SanPham s = new SanPham(txtMa.Text, txtTen.Text,Convert.ToInt32(txtGia.Text), Convert.ToInt32(txtSLT.Text), txtHang.Text);
+            //SanPhamBLL.Them(s);
 
         }
     }

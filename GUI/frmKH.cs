@@ -21,7 +21,7 @@ namespace GUI
 
         private void KhachHang_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = KhachHangBLL.getKhachHang();
+            //dataGridView1.DataSource = KhachHangBLL.getKhachHang();
         }
     }
 }
