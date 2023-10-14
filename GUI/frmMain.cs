@@ -67,7 +67,7 @@ namespace GUI
                 Console.WriteLine("Quang dz");
                 Console.WriteLine("Quang dz123");
                 Console.WriteLine("Viet dz");
-                currentBtn.BackColor = Color.FromArgb(11, 30, 68);
+                currentBtn.BackColor = Color.FromArgb(11, 7, 17);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Gainsboro;
@@ -156,6 +156,11 @@ namespace GUI
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

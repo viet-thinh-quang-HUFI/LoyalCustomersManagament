@@ -6,28 +6,31 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using Amazon.Runtime.Documents;
+using MongoDB.Driver.Core.Configuration;
 
 namespace DAL
 {
     public class SanPhamDAL
     {
-        KetNoi KetNoi = new KetNoi();
+        KetNoi conn = new KetNoi();
         public SanPhamDAL() { }
 
-        public MongoCollection<BsonDocument> getSanPham()
+        public IMongoCollection<BsonDocument> GetMoTa()
         {
-            MongoCollection<BsonDocument> collection = KetNoi.GetAllCollection("SanPham");
+            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("Mota");
             return collection;
         }
-        public IMongoCollection<BsonDocument> getMoTa()
+
+        public IMongoCollection<BsonDocument> GetSanPham()
         {
-            IMongoCollection<BsonDocument> collection = KetNoi.getMoTa("SanPham");
+            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("SanPham");
             return collection;
         }
-        public void them(BsonDocument document)
+
+        public void Them(BsonDocument document)
         {
-            MongoCollection<BsonDocument> collection = KetNoi.GetAllCollection("SanPham");
-            collection.Insert(document);
+            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("SanPham");
+            collection.InsertOne(document);
         }
     }
 }

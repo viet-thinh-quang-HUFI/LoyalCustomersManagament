@@ -10,22 +10,24 @@ namespace DAL
 {
     public class KetNoi
     {
-        String connectionString = "mongodb://localhost:27017";
-        public KetNoi() { }
-        public MongoCollection<BsonDocument> GetAllCollection(string nameCollection)
+        private static String connectionString = "mongodb://localhost:27017";
+        private static String databaseName = "LoyalCustomersManagement";
+
+        private IMongoClient _client;
+        private IMongoDatabase _database;
+
+        public IMongoClient Client { get => _client; set => _client = value; }
+        public IMongoDatabase Database { get => _database; set => _database = value; }
+
+        public KetNoi()
         {
-            
-            MongoClient client = new MongoClient(connectionString);
-            MongoServer server = client.GetServer();
-            MongoDatabase db = server.GetDatabase("LoyalCustomersManagement");
-            MongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(nameCollection);
-            return collection;
+            Client = new MongoClient(connectionString);
+            Database = Client.GetDatabase(databaseName);
         }
-        public IMongoCollection<BsonDocument> getMoTa(string nameCollection)
+
+        public IMongoCollection<BsonDocument> GetCollection(string nameCollection)
         {
-            MongoClient client = new MongoClient(connectionString);
-            var db = client.GetDatabase("LoyalCustomersManagement");
-            IMongoCollection<BsonDocument> collection = db.GetCollection<BsonDocument>(nameCollection);
+            IMongoCollection<BsonDocument> collection = Database.GetCollection<BsonDocument>(nameCollection);
             return collection;
         }
     }

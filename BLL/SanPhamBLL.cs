@@ -2,27 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DAL;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using System.Collections.ObjectModel;
-using Amazon.Runtime.Documents;
-using System.Xml.Linq;
-using MongoDB.Driver.Builders;
 
 namespace BLL
 {
     public class SanPhamBLL
     {
-        SanPhamDAL SanPhamDAL = new SanPhamDAL();
-        public SanPhamBLL() { }
-        public List<SanPham>  getSanPham()
+        SanPhamDAL sanPhamDAL = new SanPhamDAL();
+        IMongoCollection<BsonDocument> collection;
+
+        public SanPhamBLL()
+        {
+            collection = sanPhamDAL.GetSanPham();
+        }
+
+        public List<SanPham> GetSanPham()
         {
             List<SanPham> sanPhams = new List<SanPham>();
-            MongoCollection<BsonDocument> collection = SanPhamDAL.getSanPham();
-            foreach (BsonDocument document in collection.FindAll())
+            foreach (BsonDocument document in collection.Find(new BsonDocument()).ToList())
             {
                 SanPham sanPham = new SanPham();
                 sanPham.MaSP = document["MaSP"].AsString;
@@ -40,21 +39,26 @@ namespace BLL
             }
             return sanPhams;
         }
-        public MoTa getMoTa(string maSP)
+        public MoTa GetMoTa(string maSP)
         {
-            MoTa moTa = new MoTa();
-            IMongoCollection<BsonDocument> coll = SanPhamDAL.getMoTa();
-            var filter = Builders<BsonDocument>.Filter.Eq("MaSP", maSP);
-            var sp = coll.Find(filter).FirstOrDefault();
+            MoTa result = new MoTa();
+            //MongoCollection<BsonDocument> coll = SanPhamDAL.GetMoTa();
+
+            var builder = Builders<BsonDocument>.Filter;
+            var filter = builder.Eq("MaSP", maSP);
+
+            BsonDocument document = collection.Find(filter).FirstOrDefault();
+
+
+            //var sp = coll.Find((IMongoQuery)filter).FirstOrDefault();
             try
             {
-                var document = sp["Mota"];
-                //Console.WriteLine(document.ToString());
+                var moTa = document["Mota"];
                 if (document != null)
                 {
-                    moTa.HieuNang = document["Hieunang"].AsString;
-                    moTa.KichThuoc = document["Kichthuoc"].AsDouble;
-                    moTa.TrongLuong = document["Trongluong"].AsInt32;
+                    result.HieuNang = moTa["Hieunang"].AsString;
+                    result.KichThuoc = moTa["Kichthuoc"].AsDouble;
+                    result.TrongLuong = moTa["Trongluong"].AsInt32;
                     //Console.WriteLine(moTa.HieuNang.ToString());
                 }
             }
@@ -62,17 +66,17 @@ namespace BLL
             {
                 return null;
             }
-            return moTa;
+            return result;
         }
-        public void them(SanPham s)
-        {
-            BsonDocument document = new BsonDocument();
-            document.Add("MaSP", s.MaSP);
-            document.Add("TenSP", s.TenSP);
-            document.Add("Dongia", s.DonGia);
-            document.Add("Soluongton", s.SoLuongTon);
-            document.Add("Mahang", s.Hang);
-            SanPhamDAL.them(document);
-        }
+        //public void Them(SanPham s)
+        //{
+        //    BsonDocument document = new BsonDocument();
+        //    document.Add("MaSP", s.MaSP);
+        //    document.Add("TenSP", s.TenSP);
+        //    document.Add("Dongia", s.DonGia);
+        //    document.Add("Soluongton", s.SoLuongTon);
+        //    document.Add("Mahang", s.Hang);
+        //    SanPhamDAL.Them(document);
+        //}
     }
 }

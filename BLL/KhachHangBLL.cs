@@ -12,13 +12,15 @@ namespace BLL
 {
     public class KhachHangBLL
     {
-        KhachHangDAL KhachHangDAL = new KhachHangDAL();
-        public KhachHangBLL() { }
-        public List<KhachHang> getKhachHang()
+        KhachHangDAL khachHangDAL = new KhachHangDAL();
+        IMongoCollection<BsonDocument> collection;
+        public KhachHangBLL() {
+            collection = khachHangDAL.GetKhachHang();
+        }
+        public List<KhachHang> GetKhachHang()
         {
             List<KhachHang> KhachHangs = new List<KhachHang>();
-            MongoCollection<BsonDocument> collection = KhachHangDAL.getKhachHang();
-            foreach (BsonDocument document in collection.FindAll())
+            foreach (BsonDocument document in collection.Find(new BsonDocument()).ToList())
             {
                 KhachHang KhachHang = new KhachHang();
                 KhachHang.MaKH = document["MaKH"].AsString;
