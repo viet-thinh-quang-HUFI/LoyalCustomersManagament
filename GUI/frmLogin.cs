@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLL;
+using DTO;
+using System;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class frmLogin : Form
     {
+        NhanVienBLL nhanVienBLL = new NhanVienBLL();
 
         public frmLogin()
         {
@@ -25,12 +21,22 @@ namespace GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            NhanVien nhanVien = new NhanVien();
+            nhanVien.EmailNV = tbAccountName.Text;
+            nhanVien.Matkhau = tbPassword.Text;
 
+            Boolean result = nhanVienBLL.Login(nhanVien);
 
-
-            frmLoading f = new frmLoading();
-            f.Show();
-            this.Hide();
+            if(result == true)
+            {
+                frmLoading f = new frmLoading();
+                f.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản mật khẩu không hợp lệ!");
+            }
         }
 
         private void btnForgotPassword_Click(object sender, EventArgs e)
