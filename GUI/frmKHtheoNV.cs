@@ -17,7 +17,6 @@ namespace GUI
         public frmKHtheoNV()
         {
             InitializeComponent();
-            dataGridView1.DataSource = nhanVienBLL.GetKHtheoNV("daihuit@gmail.com");
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -28,6 +27,12 @@ namespace GUI
             txtSDT.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             txtEmail.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             txtDiem.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+        }
+
+        private void frmKHtheoNV_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = nhanVienBLL.GetKHtheoNV(frmLogin.mail);
+            dataGridView1.Columns["id"].Visible = false;
         }
     }
 }
