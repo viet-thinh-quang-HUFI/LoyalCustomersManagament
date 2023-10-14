@@ -43,6 +43,7 @@
             this.tbAccountName = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.cboMaNV = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,6 +56,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.panel1.Controls.Add(this.cboMaNV);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnReset);
             this.panel1.Controls.Add(this.label3);
@@ -65,7 +67,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(712, 345);
             this.panel1.TabIndex = 0;
@@ -79,7 +81,7 @@
             this.btnClose.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(659, 1);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(53, 49);
             this.btnClose.TabIndex = 16;
@@ -95,7 +97,7 @@
             this.btnReset.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
             this.btnReset.Location = new System.Drawing.Point(253, 289);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(197, 43);
             this.btnReset.TabIndex = 15;
@@ -133,7 +135,7 @@
             this.panel2.Controls.Add(this.tbRepassword);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Location = new System.Drawing.Point(0, 217);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(712, 55);
             this.panel2.TabIndex = 12;
@@ -144,7 +146,7 @@
             this.tbRepassword.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRepassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.tbRepassword.Location = new System.Drawing.Point(71, 18);
-            this.tbRepassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRepassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbRepassword.Name = "tbRepassword";
             this.tbRepassword.Size = new System.Drawing.Size(600, 21);
             this.tbRepassword.TabIndex = 11;
@@ -154,7 +156,7 @@
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.ic_lock;
             this.pictureBox1.Location = new System.Drawing.Point(20, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -167,7 +169,7 @@
             this.panel5.Controls.Add(this.tbPassword);
             this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Location = new System.Drawing.Point(0, 142);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(712, 55);
             this.panel5.TabIndex = 11;
@@ -178,7 +180,7 @@
             this.tbPassword.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.tbPassword.Location = new System.Drawing.Point(71, 18);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(600, 21);
             this.tbPassword.TabIndex = 11;
@@ -188,7 +190,7 @@
             // 
             this.pictureBox4.Image = global::GUI.Properties.Resources.ic_lock;
             this.pictureBox4.Location = new System.Drawing.Point(20, 14);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -201,7 +203,7 @@
             this.panel4.Controls.Add(this.tbAccountName);
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Location = new System.Drawing.Point(0, 66);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(712, 55);
             this.panel4.TabIndex = 4;
@@ -212,7 +214,7 @@
             this.tbAccountName.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAccountName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.tbAccountName.Location = new System.Drawing.Point(71, 18);
-            this.tbAccountName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbAccountName.Margin = new System.Windows.Forms.Padding(4);
             this.tbAccountName.Name = "tbAccountName";
             this.tbAccountName.Size = new System.Drawing.Size(600, 21);
             this.tbAccountName.TabIndex = 10;
@@ -221,7 +223,7 @@
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources.ic_account;
             this.pictureBox3.Location = new System.Drawing.Point(20, 14);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(32, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -241,6 +243,15 @@
             this.label5.Text = "Reset your password";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // cboMaNV
+            // 
+            this.cboMaNV.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMaNV.FormattingEnabled = true;
+            this.cboMaNV.Location = new System.Drawing.Point(20, 297);
+            this.cboMaNV.Name = "cboMaNV";
+            this.cboMaNV.Size = new System.Drawing.Size(189, 29);
+            this.cboMaNV.TabIndex = 17;
+            // 
             // frmResetPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -250,7 +261,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmResetPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmResetPassword";
@@ -286,5 +297,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ComboBox cboMaNV;
     }
 }

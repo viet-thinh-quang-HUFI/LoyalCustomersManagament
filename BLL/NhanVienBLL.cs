@@ -4,6 +4,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -14,11 +15,20 @@ namespace BLL
     public class NhanVienBLL
     {
         NhanVienDAL nhanVienDAL = new NhanVienDAL();
-        IMongoCollection<BsonDocument> collection;
+        IMongoCollection<NhanVien> collection;
 
         public NhanVienBLL()
         {
             collection = nhanVienDAL.GetNhanVien();
+        }
+
+        public List<NhanVien> GetNhanVien()
+        {
+            var filter = Builders<NhanVien>.Filter.Empty;
+            var nhanViens = nhanVienDAL.GetNhanVien()
+                .Find(filter)
+                .ToList();
+            return nhanViens;
         }
 
         public Byte Login(NhanVien nhanVien)
@@ -29,9 +39,10 @@ namespace BLL
             }
             else
             {
-                foreach (BsonDocument document in collection.Find(new BsonDocument()).ToList())
+                var filter = Builders<NhanVien>.Filter.Empty;
+                foreach (NhanVien document in collection.Find(filter).ToList())
                 {
-                    if (document["EmailNV"] == nhanVien.EmailNV && document["Matkhau"] == nhanVien.Matkhau)
+                    if (document.EmailNV == nhanVien.EmailNV && document.Matkhau == nhanVien.Matkhau)
                     {
                         return 0;
                     }
@@ -40,7 +51,7 @@ namespace BLL
             return 2;
         }
 
-        public BsonDocument CheckExistedAccountName(NhanVien nhanVien)
+        public NhanVien CheckExistedAccountName(NhanVien nhanVien)
         {
             if (nhanVien.EmailNV == String.Empty)
             {
@@ -48,14 +59,14 @@ namespace BLL
             }
             else
             {
-                var builder = Builders<BsonDocument>.Filter;
+                var builder = Builders<NhanVien>.Filter;
                 var filter = builder.Eq("EmailNV", nhanVien.EmailNV);
 
-                BsonDocument document = collection.Find(filter).FirstOrDefault();
+                NhanVien document = collection.Find(filter).FirstOrDefault();
 
                 try
                 {
-                    if (document.Count() != 0)
+                    if (document != null)
                     {
                         return document;
                     }
@@ -68,30 +79,18 @@ namespace BLL
             return null;
         }
 
-        public Byte ResetPassword(BsonDocument document, String newPassword, List<String> maKH)
+        public Byte ResetPassword(NhanVien document, String newPassword, String authencationName)
         {
-            int count = 0;
             if (newPassword == String.Empty)
             {
                 return 1;
             }
             else
             {
-                Array rs = document["MaKH"].AsBsonArray.ToArray();
-                foreach (var choose in maKH)
+                if (authencationName == document.MaNV)
                 {
-                    foreach (var myKH in rs)
-                    {
-                        if (choose.ToString() == myKH.ToString())
-                        {
-                            count++;
-                            break;
-                        }
-                    }
-                    if (count == 2)
-                    {
-                        return 0;
-                    }
+                    nhanVienDAL.UpdatePasswordNhanVien(authencationName, newPassword);
+                    return 0;
                 }
                 return 2;
             }

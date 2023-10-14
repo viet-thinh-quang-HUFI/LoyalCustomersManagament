@@ -25,10 +25,10 @@ namespace DAL
             Database = Client.GetDatabase(databaseName);
         }
 
-        public IMongoCollection<BsonDocument> GetCollection(string nameCollection)
-        {
-            IMongoCollection<BsonDocument> collection = Database.GetCollection<BsonDocument>(nameCollection);
-            return collection;
-        }
+        //public IMongoCollection<BsonDocument> GetCollection(string nameCollection)
+        //{
+        //    IMongoCollection<BsonDocument> collection = Database.GetCollection<BsonDocument>(nameCollection);
+        //    return collection;
+        //}
     }
 }
