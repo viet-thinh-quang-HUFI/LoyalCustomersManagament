@@ -85,6 +85,12 @@ namespace BLL
             khachHangDAL.Them(document);
             return "Thêm thành công";
         }
+        public string xoa(string ma)
+        {
+            var deleteFilter = Builders<BsonDocument>.Filter.Eq("MaKH", ma);
+            collection.DeleteOne(deleteFilter);
+            return "Xóa thành công";
+        }
         public bool IsNumber(string pText)
         {
             Regex regex = new Regex(@"^[-+]?[0-9]*.?[0-9]+$");

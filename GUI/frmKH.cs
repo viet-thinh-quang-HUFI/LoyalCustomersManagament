@@ -40,5 +40,19 @@ namespace GUI
             txtEmail.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             txtDiem.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string ma = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            if (ma == "")
+            {
+                MessageBox.Show("Chưa chọn khách hàng cần xóa");
+            }
+            else
+            {
+                KhachHangBLL.xoa(ma);
+                dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
+            }
+        }
     }
 }
