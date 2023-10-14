@@ -64,8 +64,7 @@ namespace GUI
         {
             if (currentBtn != null)
             {
-                Console.WriteLine("Quang dz");
-                Console.WriteLine("Viet dz");
+
                 currentBtn.BackColor = Color.FromArgb(11, 7, 17);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -93,10 +92,13 @@ namespace GUI
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            int w = Screen.PrimaryScreen.Bounds.Width;
-            int h = Screen.PrimaryScreen.Bounds.Height;
-            this.Location = new Point(0, 0);
-            this.Size = new Size(w, h);
+            //int w = Screen.PrimaryScreen.Bounds.Width;
+            //int h = Screen.PrimaryScreen.Bounds.Height;
+            //this.Location = new Point(0,0);
+            //this.Size = new Size(w,h);
+            //FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+            TopMost = true;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -159,7 +161,9 @@ namespace GUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            frmLogin login = new frmLogin();
+            login.ShowDialog();
         }
     }
 }

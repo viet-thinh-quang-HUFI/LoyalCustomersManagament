@@ -209,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1646, 701);
+            this.ClientSize = new System.Drawing.Size(1709, 701);
             this.Controls.Add(this.btnThongKe);
             this.Controls.Add(this.dtNgayKT);
             this.Controls.Add(this.dtNgayBD);
