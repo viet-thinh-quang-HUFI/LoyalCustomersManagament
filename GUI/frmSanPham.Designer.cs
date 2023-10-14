@@ -297,7 +297,7 @@
             // 
             // Hang
             // 
-            this.Hang.DataPropertyName = "Hang";
+            this.Hang.DataPropertyName = "Mahang";
             this.Hang.HeaderText = "Hãng";
             this.Hang.MinimumWidth = 6;
             this.Hang.Name = "Hang";

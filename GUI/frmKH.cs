@@ -33,12 +33,12 @@ namespace GUI
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            txtMa.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txtTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txtTuoi.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            txtSDT.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            txtEmail.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            txtDiem.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txtMa.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtTen.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtTuoi.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            txtSDT.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtEmail.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txtDiem.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
