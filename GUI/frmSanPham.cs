@@ -29,7 +29,7 @@ namespace GUI
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
             MoTa moTa = new MoTa();
-            string maSP = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            string maSP = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             moTa = SanPhamBLL.GetMoTa(maSP);
             if (moTa != null)
             {
@@ -43,11 +43,11 @@ namespace GUI
                 txtKichThuoc.Text = "";
                 txtTrongLuong.Text = "";
             }
-            //txtMa.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //txtTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            //txtGia.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            //txtSLT.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            //txtHang.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtMa.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtTen.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtGia.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtSLT.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            txtHang.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
 
         //test TimestampToDateTime
