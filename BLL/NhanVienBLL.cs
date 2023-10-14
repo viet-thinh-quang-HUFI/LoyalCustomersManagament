@@ -48,12 +48,8 @@ namespace BLL
             }
             else
             {
-                //var nhanVienFilter = Builders<BsonDocument>.Filter.Eq("EmailNV", nhanVien.EmailNV);
-
                 var builder = Builders<BsonDocument>.Filter;
                 var filter = builder.Eq("EmailNV", nhanVien.EmailNV);
-
-                //var sp = coll.Find((IMongoQuery)filter).FirstOrDefault();
 
                 BsonDocument document = collection.Find(filter).FirstOrDefault();
 
@@ -68,7 +64,6 @@ namespace BLL
                 {
                     return null;
                 }
-
             }
             return null;
         }

@@ -23,8 +23,7 @@ namespace GUI
         private void frmSanPham_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = SanPhamBLL.GetSanPham();
-            SanPhamBLL.GetMoTa("");
-
+            //SanPhamBLL.GetMoTa("");
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)

@@ -10,8 +10,6 @@ namespace BLL
 {
     public class SanPhamBLL
     {
-
-
         SanPhamDAL sanPhamDAL = new SanPhamDAL();
         IMongoCollection<BsonDocument> collection;
 
@@ -56,7 +54,6 @@ namespace BLL
             try
             {
                 var moTa = document["Mota"];
-
                 if (document != null)
                 {
                     result.HieuNang = moTa["Hieunang"].AsString;
