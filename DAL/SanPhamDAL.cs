@@ -26,9 +26,8 @@ namespace DAL
             return collection;
         }
 
-        public void Them(BsonDocument document)
+        public void Them(SanPham document)
         {
-            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("SanPham");
             collection.InsertOne(document);
         }
     }

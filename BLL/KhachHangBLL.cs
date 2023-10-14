@@ -25,7 +25,6 @@ namespace BLL
         }
         public string Them(string ma, string ten, string tuoi, string sdt, string mail, string diem)
         {
-            string kq = "";
             if (ma == "")
             {
                 return "Chưa nhập mã! ";
@@ -62,22 +61,67 @@ namespace BLL
             {
                 return "Nhập mail sai";
             }
-            //KhachHang s = new KhachHang(ma, ten, Convert.ToInt32(tuoi), sdt, mail, Convert.ToInt32(diem));
-            //BsonDocument document = new BsonDocument();
-            //document.Add("MaKH", s.MaKH);
-            //document.Add("Hoten", s.HoTen);
-            //document.Add("Tuoi", s.Tuoi);
-            //document.Add("SDT", s.Sdt);
-            //document.Add("EmailKH", s.Email);
-            //document.Add("Diem", s.Diem);
-            //khachHangDAL.Them(document);
+            var kh = new KhachHang
+            {
+                MaKH = ma,Hoten = ten,Tuoi = Convert.ToInt32(tuoi),SDT = sdt,EmailKH = mail, Diem = Convert.ToInt32(diem)
+            };
+            khachHangDAL.Them(kh);
             return "Thêm thành công";
         }
-        public string xoa(string ma)
+        public string Xoa(string ma)
         {
-            //var deleteFilter = Builders<BsonDocument>.Filter.Eq("MaKH", ma);
-            //collection.DeleteOne(deleteFilter);
+            var deleteFilter = Builders<KhachHang>.Filter.Eq(a=>a.MaKH, ma);
+            collection.DeleteOne(deleteFilter);
             return "Xóa thành công";
+        }
+        public string Sua(string ma, string ten, string tuoi, string sdt, string mail, string diem)
+        {
+            if (ma == "")
+            {
+                return "Chưa nhập mã! ";
+            }
+            if (ten == "")
+            {
+                return "Chưa nhập họ tên! ";
+            }
+            if (tuoi == "")
+            {
+                return "Chưa nhập tuổi! ";
+            }
+            if (sdt == "")
+            {
+                return "Chưa nhập số điện thoại! ";
+            }
+            if (mail == "")
+            {
+                return "Chưa nhập email! ";
+            }
+            if (diem == "")
+            {
+                return "Chưa nhập diem! ";
+            }
+            if (IsNumber(tuoi) == false || Convert.ToInt32(tuoi) < 0)
+            {
+                return "Nhập tuổi sai";
+            }
+            if (IsNumber(diem) == false)
+            {
+                return "Nhập điểm sai";
+            }
+            if (IsValidEmail(mail) == false)
+            {
+                return "Nhập mail sai";
+            }
+            var filter = Builders<KhachHang>.Filter.Eq(a => a.MaKH, ma);
+            var update = Builders<KhachHang>.Update
+                .Set(a => a.Hoten, ten)
+                .Set(a => a.Tuoi, Convert.ToInt32(tuoi))
+                .Set(a => a.SDT, sdt)
+                .Set(a => a.EmailKH, mail)
+                .Set(a => a.Diem, Convert.ToInt32(diem));
+
+            collection.UpdateOne(filter, update);
+            return "Sửa thành công";
         }
         public bool IsNumber(string pText)
         {
