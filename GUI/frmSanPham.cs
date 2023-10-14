@@ -28,27 +28,27 @@ namespace GUI
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            MoTa moTa = new MoTa();
-            string ma = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            moTa = SanPhamBLL.GetMoTa(ma);
-            //Console.WriteLine(moTa.HieuNang.ToString());
-            if (moTa != null)
-            {
-                txtHieuNang.Text = moTa.HieuNang.ToString();
-                txtKichThuoc.Text = moTa.KichThuoc.ToString();
-                txtTrongLuong.Text = moTa.TrongLuong.ToString();
-            }
-            else
-            {
-                txtHieuNang.Text = "";
-                txtKichThuoc.Text = "";
-                txtTrongLuong.Text = "";
-            }
-            txtMa.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            txtTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txtGia.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            txtSLT.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            txtHang.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            //MoTa moTa = new MoTa();
+            //string ma = "";//dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //moTa = SanPhamBLL.GetMoTa(ma);
+            ////Console.WriteLine(moTa.HieuNang.ToString());
+            //if (moTa != null)
+            //{
+            //    txtHieuNang.Text = moTa.HieuNang.ToString();
+            //    txtKichThuoc.Text = moTa.KichThuoc.ToString();
+            //    txtTrongLuong.Text = moTa.TrongLuong.ToString();
+            //}
+            //else
+            //{
+            //    txtHieuNang.Text = "";
+            //    txtKichThuoc.Text = "";
+            //    txtTrongLuong.Text = "";
+            //}
+            //txtMa.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //txtTen.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            //txtGia.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            //txtSLT.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            //txtHang.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
         }
 
         //test TimestampToDateTime

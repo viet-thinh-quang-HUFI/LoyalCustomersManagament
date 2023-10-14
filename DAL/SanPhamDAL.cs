@@ -7,23 +7,22 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using Amazon.Runtime.Documents;
 using MongoDB.Driver.Core.Configuration;
+using DTO;
+using System.Collections.ObjectModel;
 
 namespace DAL
 {
     public class SanPhamDAL
     {
         KetNoi conn = new KetNoi();
-        public SanPhamDAL() { }
-
-        public IMongoCollection<BsonDocument> GetMoTa()
+        IMongoCollection<SanPham> collection;
+        public SanPhamDAL() 
         {
-            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("Mota");
-            return collection;
+            collection = conn.Database.GetCollection<SanPham>("SanPham");
         }
 
-        public IMongoCollection<BsonDocument> GetSanPham()
-        {
-            IMongoCollection<BsonDocument> collection = conn.Database.GetCollection<BsonDocument>("SanPham");
+        public IMongoCollection<SanPham> GetSanPham()
+        { 
             return collection;
         }
 

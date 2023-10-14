@@ -1,7 +1,9 @@
-﻿using MongoDB.Bson;
+﻿using DTO;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +12,21 @@ namespace DAL
 {
     public class KhachHangDAL
     {
-        KetNoi KetNoi = new KetNoi();
-        public KhachHangDAL() { }
-        public IMongoCollection<BsonDocument> GetKhachHang()
+        KetNoi conn = new KetNoi();
+        private IMongoCollection<KhachHang> collection;
+        public KhachHangDAL() 
         {
-            IMongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection<BsonDocument>("KhachHang");
+            collection = conn.Database.GetCollection<KhachHang>("KhachHang");
+        }
+        public IMongoCollection<KhachHang> GetKhachHang()
+        {
             return collection;
         }
+
         public void Them(BsonDocument document)
         {
-            IMongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection<BsonDocument>("KhachHang");
-            collection.InsertOne(document);
+            //IMongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection<BsonDocument>("KhachHang");
+            //collection.InsertOne(document);
         }
     }
 }
