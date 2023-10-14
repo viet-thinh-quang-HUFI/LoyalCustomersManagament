@@ -23,6 +23,12 @@ namespace BLL
                 .ToList();
             return khachHangs;
         }
+        public KhachHang GetMotKH(string ma)
+        {
+            var filter = Builders<KhachHang>.Filter.Eq(a => a.MaKH, ma);
+            KhachHang kh = khachHangDAL.GetKhachHang().Find(filter).SingleOrDefault();
+            return kh;
+        }
         public string Them(string ma, string ten, string tuoi, string sdt, string mail, string diem)
         {
             if (ma == "")
