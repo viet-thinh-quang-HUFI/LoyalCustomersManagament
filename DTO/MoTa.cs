@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,21 @@ namespace DTO
 {
     public class MoTa
     {
+       
+        private Double _kichThuoc;
+        private string _hieuNang;
+        private Int32 _trongLuong;
+
+        [BsonElement("Kichthuoc"), BsonRepresentation(MongoDB.Bson.BsonType.Double)]
+        public double KichThuoc { get => _kichThuoc; set => _kichThuoc = value; }
+
+        [BsonElement("Hieunang"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string HieuNang { get => _hieuNang; set => _hieuNang = value; }
+        
+        [BsonElement("Trongluong"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
+        public int TrongLuong { get => _trongLuong; set => _trongLuong = value; }
+        
+
         public MoTa() { }
-        private Double kichThuoc;
-        private string hieuNang;
-        private Int32 trongLuong;
-        public string HieuNang { get => hieuNang; set => hieuNang = value; }
-        public int TrongLuong { get => trongLuong; set => trongLuong = value; }
-        public double KichThuoc { get => kichThuoc; set => kichThuoc = value; }
-        public MoTa(Double kichthuoc, string hieunang, Int32 trongluong)
-        {
-            HieuNang = hieunang;
-            TrongLuong = trongluong;
-            KichThuoc= kichthuoc;
-        }
     }
 }
