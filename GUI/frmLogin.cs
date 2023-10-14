@@ -25,6 +25,9 @@ namespace GUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+
+
             frmLoading f = new frmLoading();
             f.Show();
             this.Hide();

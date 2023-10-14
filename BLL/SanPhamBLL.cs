@@ -18,10 +18,10 @@ namespace BLL
     {
         SanPhamDAL SanPhamDAL = new SanPhamDAL();
         public SanPhamBLL() { }
-        public List<SanPham>  getSanPham()
+        public List<SanPham>  GetSanPham()
         {
             List<SanPham> sanPhams = new List<SanPham>();
-            MongoCollection<BsonDocument> collection = SanPhamDAL.getSanPham();
+            MongoCollection<BsonDocument> collection = SanPhamDAL.GetSanPham();
             foreach (BsonDocument document in collection.FindAll())
             {
                 SanPham sanPham = new SanPham();
@@ -40,12 +40,15 @@ namespace BLL
             }
             return sanPhams;
         }
-        public MoTa getMoTa(string maSP)
+        public MoTa GetMoTa(string maSP)
         {
             MoTa moTa = new MoTa();
-            IMongoCollection<BsonDocument> coll = SanPhamDAL.getMoTa();
-            var filter = Builders<BsonDocument>.Filter.Eq("MaSP", maSP);
-            var sp = coll.Find(filter).FirstOrDefault();
+            MongoCollection<BsonDocument> coll = SanPhamDAL.GetMoTa();
+
+            var builder = Builders<BsonDocument>.Filter;
+            var filter = builder.Eq("MaSP", maSP);
+
+            var sp = coll.Find((IMongoQuery)filter).FirstOrDefault();
             try
             {
                 var document = sp["Mota"];
@@ -64,7 +67,7 @@ namespace BLL
             }
             return moTa;
         }
-        public void them(SanPham s)
+        public void Them(SanPham s)
         {
             BsonDocument document = new BsonDocument();
             document.Add("MaSP", s.MaSP);
@@ -72,7 +75,7 @@ namespace BLL
             document.Add("Dongia", s.DonGia);
             document.Add("Soluongton", s.SoLuongTon);
             document.Add("Mahang", s.Hang);
-            SanPhamDAL.them(document);
+            SanPhamDAL.Them(document);
         }
     }
 }

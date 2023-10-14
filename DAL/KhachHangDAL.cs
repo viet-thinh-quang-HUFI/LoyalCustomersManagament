@@ -14,7 +14,7 @@ namespace DAL
         public KhachHangDAL() { }
         public MongoCollection<BsonDocument> getKhachHang()
         {
-            MongoCollection<BsonDocument> collection = KetNoi.GetAllCollection("KhachHang");
+            MongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection("KhachHang");
             return collection;
         }
     }
