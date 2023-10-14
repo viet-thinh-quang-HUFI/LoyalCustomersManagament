@@ -8,6 +8,7 @@ namespace GUI
     public partial class frmLogin : Form
     {
         NhanVienBLL nhanVienBLL = new NhanVienBLL();
+        public static string mail = "";
 
         public frmLogin()
         {
@@ -31,6 +32,7 @@ namespace GUI
             {
                 frmLoading f = new frmLoading();
                 f.Show();
+                mail = tbAccountName.Text;
                 this.Hide();
             }
             else if (result == 1)
