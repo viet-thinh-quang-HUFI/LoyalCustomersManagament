@@ -114,16 +114,16 @@ namespace GUI
             }
             else
             {
-                SanPhamBLL.Xoa(ma);
-                dataGridView1.DataSource = SanPhamBLL.GetSanPham();
+                sanPhamBLL.Xoa(ma);
+                dataGridView1.DataSource = sanPhamBLL.GetSanPham();
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string kq = SanPhamBLL.Sua(txtMa.Text, txtTen.Text, txtGia.Text, txtSLT.Text, txtHang.Text);
+            string kq = sanPhamBLL.Sua(txtMa.Text, txtTen.Text, txtGia.Text, txtSLT.Text, txtHang.Text);
             MessageBox.Show(kq);
-            dataGridView1.DataSource = SanPhamBLL.GetSanPham();
+            dataGridView1.DataSource = sanPhamBLL.GetSanPham();
         }
     }
 }
