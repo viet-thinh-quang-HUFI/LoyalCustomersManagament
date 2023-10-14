@@ -28,32 +28,20 @@ namespace BLL
         }
         public MoTa GetMoTa(string maSP)
         {
-            //MoTa result = new MoTa();
-            ////MongoCollection<BsonDocument> coll = SanPhamDAL.GetMoTa();
+            MoTa moTa = new MoTa();
+            //MongoCollection<BsonDocument> coll = SanPhamDAL.GetMoTa();
 
-            //var builder = Builders<BsonDocument>.Filter;
-            //var filter = builder.Eq("MaSP", maSP);
+            var filter = Builders<SanPham>.Filter.Eq(a => a.MaSP, maSP);
 
-            //BsonDocument document = collection.Find(filter).FirstOrDefault();
-
-
-            ////var sp = coll.Find((IMongoQuery)filter).FirstOrDefault();
-            //try
-            //{
-            //    var moTa = document["Mota"];
-            //    if (document != null)
-            //    {
-            //        result.HieuNang = moTa["Hieunang"].AsString;
-            //        result.KichThuoc = moTa["Kichthuoc"].AsDouble;
-            //        result.TrongLuong = moTa["Trongluong"].AsInt32;
-            //        //Console.WriteLine(moTa.HieuNang.ToString());
-            //    }
-            //}
-            //catch (Exception e)
-            //{
+            try
+            {
+                moTa = collection.Find(filter).SingleOrDefault().MoTa;
+            }
+            catch (Exception e)
+            {
                 return null;
-            //}
-            //return result;
+            }
+            return moTa;
         }
         public void Them(SanPham s)
         {

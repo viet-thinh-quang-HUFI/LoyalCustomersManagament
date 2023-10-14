@@ -42,8 +42,9 @@ namespace DTO
 
         [BsonElement("Mota")]
         public MoTa MoTa { get => _moTa; set => _moTa = value; }
-        public SanPham() { }
+        public SanPham()
+        {
 
-        
+        }
     }
 }
