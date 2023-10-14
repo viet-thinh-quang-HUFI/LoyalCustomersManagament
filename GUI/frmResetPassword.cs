@@ -25,7 +25,8 @@ namespace GUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+           frmLogin login = new frmLogin();
+           login.ShowDialog();
         }
 
         private void btnReset_Click(object sender, EventArgs e)

@@ -64,9 +64,6 @@ namespace GUI
         {
             if (currentBtn != null)
             {
-                Console.WriteLine("Quang dz");
-                Console.WriteLine("Quang dz123");
-                Console.WriteLine("Viet dz");
                 currentBtn.BackColor = Color.FromArgb(11, 7, 17);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -160,7 +157,9 @@ namespace GUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            frmLogin login = new frmLogin();
+            login.ShowDialog();
         }
     }
 }

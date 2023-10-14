@@ -224,7 +224,6 @@ F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\BLL.dll
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\DTO.dll
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\FontAwesome.Sharp.dll
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\DAL.dll
-F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.dll
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Bson.dll
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.dll
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Core.dll
@@ -245,7 +244,6 @@ F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\BLL.dll.config
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\DTO.pdb
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\DAL.pdb
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\DAL.dll.config
-F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.xml
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Bson.xml
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.xml
 F:\DoAnNosql\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Core.xml
@@ -332,3 +330,4 @@ C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
 C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmResetPassword.resources
+F:\DoAnNosql\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmResetPassword.resources
