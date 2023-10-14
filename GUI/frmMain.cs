@@ -98,7 +98,7 @@ namespace GUI
             //this.Size = new Size(w,h);
             //FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-            TopMost = true;
+            //TopMost = true;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
