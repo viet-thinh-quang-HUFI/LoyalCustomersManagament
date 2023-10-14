@@ -17,5 +17,10 @@ namespace DAL
             IMongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection<BsonDocument>("KhachHang");
             return collection;
         }
+        public void Them(BsonDocument document)
+        {
+            IMongoCollection<BsonDocument> collection = KetNoi.Database.GetCollection<BsonDocument>("KhachHang");
+            collection.InsertOne(document);
+        }
     }
 }

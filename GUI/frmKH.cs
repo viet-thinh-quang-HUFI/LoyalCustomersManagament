@@ -23,5 +23,12 @@ namespace GUI
         {
             dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string kq = KhachHangBLL.Them(txtMa.Text,txtTen.Text,txtTuoi.Text,txtSDT.Text,txtEmail.Text,txtDiem.Text);
+            MessageBox.Show(kq);
+            dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
+        }
     }
 }
