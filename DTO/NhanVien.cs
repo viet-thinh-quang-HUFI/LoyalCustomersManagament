@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,16 @@ namespace DTO
         public string Matkhau { get => _Matkhau; set => _Matkhau = value; }
         public short KPI { get => _KPI; set => _KPI = value; }
         public List<string> MaKH { get => _MaKH; set => _MaKH = value; }
+
+        public NhanVien()
+        {
+            MaNV = "";
+            HotenNV = "";
+            EmailNV = "";
+            Matkhau = "";
+            KPI = 0;
+            MaKH = new List<String>();
+        }
 
         public NhanVien(string maNV, string hotenNV, string emailNV, string matkhau, short kPI, List<string> maKH)
         {
