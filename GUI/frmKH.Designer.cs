@@ -45,6 +45,12 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,6 +195,13 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaKH,
+            this.TenKH,
+            this.tuoi,
+            this.sdt,
+            this.email,
+            this.diem});
             this.dataGridView1.Location = new System.Drawing.Point(14, 177);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
@@ -196,6 +209,54 @@
             this.dataGridView1.Size = new System.Drawing.Size(1041, 364);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            // 
+            // MaKH
+            // 
+            this.MaKH.DataPropertyName = "MaKH";
+            this.MaKH.HeaderText = "Mã khách hàng";
+            this.MaKH.MinimumWidth = 6;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.Width = 125;
+            // 
+            // TenKH
+            // 
+            this.TenKH.DataPropertyName = "Hoten";
+            this.TenKH.HeaderText = "Họ tên";
+            this.TenKH.MinimumWidth = 6;
+            this.TenKH.Name = "TenKH";
+            this.TenKH.Width = 125;
+            // 
+            // tuoi
+            // 
+            this.tuoi.DataPropertyName = "Tuoi";
+            this.tuoi.HeaderText = "Tuổi";
+            this.tuoi.MinimumWidth = 6;
+            this.tuoi.Name = "tuoi";
+            this.tuoi.Width = 125;
+            // 
+            // sdt
+            // 
+            this.sdt.DataPropertyName = "SDT";
+            this.sdt.HeaderText = "Số điện thoại";
+            this.sdt.MinimumWidth = 6;
+            this.sdt.Name = "sdt";
+            this.sdt.Width = 125;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "EmailKH";
+            this.email.HeaderText = "Email";
+            this.email.MinimumWidth = 6;
+            this.email.Name = "email";
+            this.email.Width = 125;
+            // 
+            // diem
+            // 
+            this.diem.DataPropertyName = "Diem";
+            this.diem.HeaderText = "Điểm";
+            this.diem.MinimumWidth = 6;
+            this.diem.Name = "diem";
+            this.diem.Width = 125;
             // 
             // frmKH
             // 
@@ -219,7 +280,7 @@
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmKH";
             this.Text = "KhachHang";
             this.Load += new System.EventHandler(this.KhachHang_Load);
@@ -248,5 +309,11 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn diem;
     }
 }

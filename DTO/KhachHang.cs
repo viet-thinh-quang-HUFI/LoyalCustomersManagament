@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,29 +9,37 @@ namespace DTO
 {
     public class KhachHang
     {
-        private string maKH;
-        private string hoTen;
-        private int tuoi;
-        private string sdt;
-        private string email;
-        private int diem;
+        private String _id;
+        private String _maKH;
+        private String _hoTen;
+        private Int32 _tuoi;
+        private String _sdt;
+        private String _email;
+        private Int32 _diem;
+        private List<String> _hoaDon;
         public KhachHang() { }
+        [BsonId, BsonElement("_id"), BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        public string Id { get => _id; set => _id = value; }
 
-        public KhachHang(string maKH, string hoTen, int tuoi, string sdt, string email, int diem)
-        {
-            this.maKH = maKH;
-            this.hoTen = hoTen;
-            this.tuoi = tuoi;
-            this.sdt = sdt;
-            this.email = email;
-            this.diem = diem;
-        }
+        [BsonElement("MaKH"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string MaKH { get => _maKH; set => _maKH = value; }
 
-        public string MaKH { get => maKH; set => maKH = value; }
-        public string HoTen { get => hoTen; set => hoTen = value; }
-        public int Tuoi { get => tuoi; set => tuoi = value; }
-        public string Sdt { get => sdt; set => sdt = value; }
-        public string Email { get => email; set => email = value; }
-        public int Diem { get => diem; set => diem = value; }
+        [BsonElement("Hoten"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string Hoten { get => _hoTen; set => _hoTen = value; }
+
+        [BsonElement("Tuoi"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
+        public int Tuoi { get => _tuoi; set => _tuoi = value; }
+
+        [BsonElement("SDT"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string SDT { get => _sdt; set => _sdt = value; }
+
+        [BsonElement("EmailKH"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string EmailKH { get => _email; set => _email = value; }
+
+        [BsonElement("Diem"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
+        public int Diem { get => _diem; set => _diem = value; }
+        
+        [BsonElement("Hoadon")]
+        public List<string> Hoadon { get => _hoaDon; set => _hoaDon = value; }
     }
 }

@@ -14,26 +14,17 @@ namespace BLL
     public class KhachHangBLL
     {
         KhachHangDAL khachHangDAL = new KhachHangDAL();
-        IMongoCollection<BsonDocument> collection;
+        IMongoCollection<KhachHang> collection;
         public KhachHangBLL() {
             collection = khachHangDAL.GetKhachHang();
         }
         public List<KhachHang> GetKhachHang()
         {
-            List<KhachHang> KhachHangs = new List<KhachHang>();
-            foreach (BsonDocument document in collection.Find(new BsonDocument()).ToList())
-            {
-                KhachHang KhachHang = new KhachHang();
-                KhachHang.MaKH = document["MaKH"].AsString;
-                KhachHang.HoTen = document["Hoten"].AsString;
-                KhachHang.Tuoi = document["Tuoi"].AsInt32;
-                KhachHang.Sdt = document["SDT"].AsString;
-                KhachHang.Email = document["EmailKH"].AsString;
-                KhachHang.Diem = document["Diem"].AsInt32;
-
-                KhachHangs.Add(KhachHang);
-            }
-            return KhachHangs;
+            var filter = Builders<KhachHang>.Filter.Empty;
+            var khachHangs = khachHangDAL.GetKhachHang()
+                .Find(filter)
+                .ToList();
+            return khachHangs;
         }
         public string Them(string ma, string ten, string tuoi, string sdt, string mail, string diem)
         {
@@ -74,21 +65,21 @@ namespace BLL
             {
                 return "Nhập mail sai";
             }
-            KhachHang s = new KhachHang(ma, ten, Convert.ToInt32(tuoi), sdt, mail, Convert.ToInt32(diem));
-            BsonDocument document = new BsonDocument();
-            document.Add("MaKH", s.MaKH);
-            document.Add("Hoten", s.HoTen);
-            document.Add("Tuoi", s.Tuoi);
-            document.Add("SDT", s.Sdt);
-            document.Add("EmailKH", s.Email);
-            document.Add("Diem", s.Diem);
-            khachHangDAL.Them(document);
+            //KhachHang s = new KhachHang(ma, ten, Convert.ToInt32(tuoi), sdt, mail, Convert.ToInt32(diem));
+            //BsonDocument document = new BsonDocument();
+            //document.Add("MaKH", s.MaKH);
+            //document.Add("Hoten", s.HoTen);
+            //document.Add("Tuoi", s.Tuoi);
+            //document.Add("SDT", s.Sdt);
+            //document.Add("EmailKH", s.Email);
+            //document.Add("Diem", s.Diem);
+            //khachHangDAL.Them(document);
             return "Thêm thành công";
         }
         public string xoa(string ma)
         {
-            var deleteFilter = Builders<BsonDocument>.Filter.Eq("MaKH", ma);
-            collection.DeleteOne(deleteFilter);
+            //var deleteFilter = Builders<BsonDocument>.Filter.Eq("MaKH", ma);
+            //collection.DeleteOne(deleteFilter);
             return "Xóa thành công";
         }
         public bool IsNumber(string pText)
