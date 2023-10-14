@@ -22,3 +22,9 @@ C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.AssemblyRefer
 C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\obj\Debug\DTO.dll
 C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\obj\Debug\DTO.pdb
+D:\HK1_2023-2024(HK7)\nosql\nosql\LoyalCustomersManagament\DTO\bin\Debug\DTO.dll
+D:\HK1_2023-2024(HK7)\nosql\nosql\LoyalCustomersManagament\DTO\bin\Debug\DTO.pdb
+D:\HK1_2023-2024(HK7)\nosql\nosql\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+D:\HK1_2023-2024(HK7)\nosql\nosql\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\HK1_2023-2024(HK7)\nosql\nosql\LoyalCustomersManagament\DTO\obj\Debug\DTO.dll
+D:\HK1_2023-2024(HK7)\nosql\nosql\LoyalCustomersManagament\DTO\obj\Debug\DTO.pdb
