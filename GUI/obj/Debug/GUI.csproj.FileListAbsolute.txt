@@ -503,7 +503,6 @@ D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.AssemblyReference.cache
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
-D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe.config
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmLoading.resources
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmLogin.resources
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmMain.resources
@@ -558,3 +557,17 @@ D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\De
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\mongocrypt.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\AWSSDK.SecurityToken.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Win32.Registry.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\System.Security.AccessControl.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\System.Security.Principal.Windows.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\System.Text.Encoding.CodePages.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\AWSSDK.SecurityToken.pdb
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\AWSSDK.SecurityToken.xml
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\Microsoft.Win32.Registry.xml
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\System.Security.AccessControl.xml
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\System.Security.Principal.Windows.xml
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\System.Text.Encoding.CodePages.xml

@@ -44,7 +44,8 @@ namespace DTO
         public MoTa MoTa { get => _moTa; set => _moTa = value; }
         public SanPham()
         {
-
+            //Id = null;
+            //MoTa = null;
         }
     }
 }
