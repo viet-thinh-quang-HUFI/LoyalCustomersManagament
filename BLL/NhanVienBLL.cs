@@ -33,53 +33,54 @@ namespace BLL
 
         public Byte Login(NhanVien nhanVien)
         {
-            if (nhanVien.EmailNV == String.Empty || nhanVien.Matkhau == String.Empty)
+            String email = nhanVien.EmailNV;
+            String password = nhanVien.Matkhau;
+
+            if (email == String.Empty || password == String.Empty)
             {
                 return 1;
             }
             else
             {
-                var filter = Builders<NhanVien>.Filter.Empty;
-                foreach (NhanVien document in collection.Find(filter).ToList())
+                var filter = Builders<NhanVien>.Filter.And(
+                    Builders<NhanVien>.Filter.Eq(a => a.EmailNV, email),
+                    Builders<NhanVien>.Filter.Eq(b => b.Matkhau, password));
+
+                var result = collection.Find(filter).ToList();
+                if (result.Count > 0)
                 {
-                    if (document.EmailNV == nhanVien.EmailNV && document.Matkhau == nhanVien.Matkhau)
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
             }
             return 2;
         }
 
-        public NhanVien CheckExistedAccountName(NhanVien nhanVien)
+        public String CheckExistedAccountName(String emailKH)
         {
-            if (nhanVien.EmailNV == String.Empty)
+            String email = emailKH;
+
+            if (email == String.Empty)
             {
                 return null;
             }
             else
             {
-                var builder = Builders<NhanVien>.Filter;
-                var filter = builder.Eq("EmailNV", nhanVien.EmailNV);
-
-                NhanVien document = collection.Find(filter).FirstOrDefault();
+                var filter = Builders<NhanVien>.Filter.Eq(a => a.EmailNV, email);
+                var project = Builders<NhanVien>.Projection.Include(x => x.MaNV);
 
                 try
                 {
-                    if (document != null)
-                    {
-                        return document;
-                    }
+                    String maNV = collection.Find(filter).SingleOrDefault().MaNV;
+                    return maNV;
                 }
                 catch
                 {
                     return null;
                 }
             }
-            return null;
         }
 
-        public Byte ResetPassword(NhanVien document, String newPassword, String authencationName)
+        public Byte ResetPassword(String maNV, String newPassword, String authencationName)
         {
             if (newPassword == String.Empty)
             {
@@ -87,7 +88,7 @@ namespace BLL
             }
             else
             {
-                if (authencationName == document.MaNV)
+                if (authencationName == maNV)
                 {
                     nhanVienDAL.UpdatePasswordNhanVien(authencationName, newPassword);
                     return 0;

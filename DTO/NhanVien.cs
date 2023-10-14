@@ -40,7 +40,13 @@ namespace DTO
 
         public NhanVien()
         {
-
+            String _id = "";
+            String _MaNV = "";
+            String _HotenNV = "";
+            String _EmailNV = "";
+            String _Matkhau = "";
+            Int16 _KPI = 0;
+            List<String> _MaKH = new List<string>();
         }
     }
 }
