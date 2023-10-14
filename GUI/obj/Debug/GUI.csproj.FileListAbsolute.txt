@@ -558,3 +558,4 @@ D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\De
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CopyComplete
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\DTO.dll.config

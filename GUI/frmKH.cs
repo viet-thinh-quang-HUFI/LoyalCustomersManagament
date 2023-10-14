@@ -54,5 +54,10 @@ namespace GUI
                 dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
             }
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
