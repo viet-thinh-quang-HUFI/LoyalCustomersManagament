@@ -43,16 +43,23 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string ma = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            string ma = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             if (ma == "")
             {
                 MessageBox.Show("Chưa chọn khách hàng cần xóa");
             }
             else
             {
-                KhachHangBLL.xoa(ma);
+                KhachHangBLL.Xoa(ma);
                 dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
             }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string kq = KhachHangBLL.Sua(txtMa.Text, txtTen.Text, txtTuoi.Text, txtSDT.Text, txtEmail.Text, txtDiem.Text);
+            MessageBox.Show(kq);
+            dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
         }
     }
 }
