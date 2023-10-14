@@ -19,13 +19,13 @@ namespace BLL
             collection = sanPhamDAL.GetSanPham();
         }
 
-        public List<SanPham> GetSanPham()
+        public IMongoCollection<SanPham> GetSanPham()
         {
             var filter = Builders<SanPham>.Filter.Empty;
             var sanPhams = sanPhamDAL.GetSanPham()
                 .Find(filter)
                 .ToList();
-            return sanPhams;
+            return sanPhamDAL.GetSanPham();
         }
         public MoTa GetMoTa(string maSP)
         {

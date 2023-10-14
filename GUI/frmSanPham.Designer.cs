@@ -53,9 +53,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuongTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Soluongton = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mahang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -270,9 +271,10 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSP,
             this.TenSP,
-            this.Hang,
-            this.DonGia,
-            this.SoLuongTon});
+            this.Dongia,
+            this.Soluongton,
+            this.Mahang,
+            this.Tinhtrang});
             this.dataGridView1.Location = new System.Drawing.Point(21, 249);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
@@ -287,7 +289,7 @@
             this.MaSP.HeaderText = "Mã sản phẩm";
             this.MaSP.MinimumWidth = 6;
             this.MaSP.Name = "MaSP";
-            this.MaSP.Width = 150;
+            this.MaSP.Width = 125;
             // 
             // TenSP
             // 
@@ -295,31 +297,39 @@
             this.TenSP.HeaderText = "Tên sản phẩm";
             this.TenSP.MinimumWidth = 6;
             this.TenSP.Name = "TenSP";
-            this.TenSP.Width = 350;
+            this.TenSP.Width = 125;
             // 
-            // Hang
+            // Dongia
             // 
-            this.Hang.DataPropertyName = "Mahang";
-            this.Hang.HeaderText = "Hãng";
-            this.Hang.MinimumWidth = 6;
-            this.Hang.Name = "Hang";
-            this.Hang.Width = 150;
+            this.Dongia.DataPropertyName = "Dongia";
+            this.Dongia.HeaderText = "Đơn giá";
+            this.Dongia.MinimumWidth = 6;
+            this.Dongia.Name = "Dongia";
+            this.Dongia.Width = 125;
             // 
-            // DonGia
+            // Soluongton
             // 
-            this.DonGia.DataPropertyName = "DonGia";
-            this.DonGia.HeaderText = "Đơn giá";
-            this.DonGia.MinimumWidth = 6;
-            this.DonGia.Name = "DonGia";
-            this.DonGia.Width = 150;
+            this.Soluongton.DataPropertyName = "Soluongton";
+            this.Soluongton.HeaderText = "Số lượng tồn";
+            this.Soluongton.MinimumWidth = 6;
+            this.Soluongton.Name = "Soluongton";
+            this.Soluongton.Width = 125;
             // 
-            // SoLuongTon
+            // Mahang
             // 
-            this.SoLuongTon.DataPropertyName = "SoLuongTon";
-            this.SoLuongTon.HeaderText = "Số lượng tồn";
-            this.SoLuongTon.MinimumWidth = 6;
-            this.SoLuongTon.Name = "SoLuongTon";
-            this.SoLuongTon.Width = 175;
+            this.Mahang.DataPropertyName = "Mahang";
+            this.Mahang.HeaderText = "Mã hãng";
+            this.Mahang.MinimumWidth = 6;
+            this.Mahang.Name = "Mahang";
+            this.Mahang.Width = 125;
+            // 
+            // Tinhtrang
+            // 
+            this.Tinhtrang.DataPropertyName = "Tinhtrang";
+            this.Tinhtrang.HeaderText = "Tình trạng";
+            this.Tinhtrang.MinimumWidth = 6;
+            this.Tinhtrang.Name = "Tinhtrang";
+            this.Tinhtrang.Width = 125;
             // 
             // frmSanPham
             // 
@@ -383,8 +393,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuongTon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dongia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Soluongton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mahang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tinhtrang;
     }
 }
