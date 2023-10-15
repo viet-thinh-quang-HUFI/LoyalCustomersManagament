@@ -53,6 +53,12 @@ namespace BLL
             }
             return moTa;
         }
+        public SanPham GetMotSanPham(string ma)
+        {
+            var filter = Builders<SanPham>.Filter.Eq(f => f.MaSP, ma);
+            SanPham sanPham = sanPhamDAL.GetSanPham().Find(filter).FirstOrDefault();
+            return sanPham;
+        }
         public string Them(string ma, string ten, string dongia, string sl, string hang)
         {
             if (ma == "")

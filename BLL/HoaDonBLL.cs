@@ -32,7 +32,30 @@ namespace BLL
             List<HoaDon> hoaDons = hoaDonDAL.GetHoaDon().Find(filter).ToList();
             return hoaDons;
         }
+        public HoaDon GetMotHoaDon(string ma)
+        {
+            var filter = Builders<HoaDon>.Filter.Eq(f => f.MaHD, ma);
+            HoaDon hoaDon = hoaDonDAL.GetHoaDon().Find(filter).FirstOrDefault();
+            return hoaDon;
+        }
 
+        public List<SanPham> GetSPtheoHD(string ma)
+        {
+            var filter = Builders<HoaDon>.Filter.Eq(a => a.MaHD, ma);
+            var hd = hoaDonDAL.GetHoaDon().Find(filter).SingleOrDefault().Hoadon;
+            SanPhamBLL sanPhamBLL = new SanPhamBLL();
+            List<SanPham> sanPhams = new List<SanPham>();
+            if (hd == null)
+            {
+                return null;
+            }
+            for (int i = 0; i < hd.Count; i++)
+            {
+                SanPham sp = sanPhamBLL.GetMotSanPham(hd[i].MaSP);
+                sanPhams.Add(sp);
+            }
+            return sanPhams;
+        }
         public static int ToUnixTimeSeconds(DateTime date)
         {
             DateTime point = new DateTime(1970, 1, 1);

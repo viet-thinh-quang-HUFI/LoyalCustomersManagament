@@ -40,6 +40,18 @@ namespace BLL
             KhachHang kh = khachHangDAL.GetKhachHang().Find(filter).SingleOrDefault();
             return kh;
         }
+        public List<KhachHang> GetKHtheoSDT(string sdt)
+        {
+            var filter = Builders<KhachHang>.Filter.Eq(a => a.SDT, sdt);
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
+            return kh;
+        }
+        public List<KhachHang> GetKHtheoEmail(string mail)
+        {
+            var filter = Builders<KhachHang>.Filter.Eq(a => a.EmailKH, mail);
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
+            return kh;
+        }
         public List<KhachHang> GetKHThongKe(string d)
         {
             double diemDau = 0 ;
@@ -63,6 +75,24 @@ namespace BLL
             List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
             return kh;
         }
+        public List<HoaDon> GetHDtheoKH(string ma)
+        {
+            var filter = Builders<KhachHang>.Filter.Eq(a => a.MaKH, ma);
+            var kh = khachHangDAL.GetKhachHang().Find(filter).SingleOrDefault().Hoadon;
+            HoaDonBLL hoaDonBLL = new HoaDonBLL();
+            List<HoaDon> hoaDons = new List<HoaDon>();
+            if (kh == null)
+            {
+                return null;
+            }
+            for (int i = 0; i < kh.Count; i++)
+            {
+                HoaDon hd = hoaDonBLL.GetMotHoaDon(kh[i]);
+                hoaDons.Add(hd);
+            }
+            return hoaDons;
+        }
+
         public string Them(string ma, string ten, string tuoi, string sdt, string mail, string diem)
         {
             if (ma == "")
