@@ -95,10 +95,10 @@
             // dtNgayBD
             // 
             this.dtNgayBD.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayBD.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayBD.Location = new System.Drawing.Point(414, 92);
             this.dtNgayBD.Name = "dtNgayBD";
-            this.dtNgayBD.Size = new System.Drawing.Size(253, 30);
+            this.dtNgayBD.Size = new System.Drawing.Size(253, 32);
             this.dtNgayBD.TabIndex = 13;
             // 
             // label7
@@ -126,7 +126,8 @@
             // txtDiem
             // 
             this.txtDiem.Enabled = false;
-            this.txtDiem.Location = new System.Drawing.Point(592, 92);
+            this.txtDiem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiem.Location = new System.Drawing.Point(606, 92);
             this.txtDiem.Multiline = true;
             this.txtDiem.Name = "txtDiem";
             this.txtDiem.Size = new System.Drawing.Size(93, 36);
@@ -135,10 +136,11 @@
             // txtTen
             // 
             this.txtTen.Enabled = false;
+            this.txtTen.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Location = new System.Drawing.Point(337, 165);
             this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(348, 36);
+            this.txtTen.Size = new System.Drawing.Size(362, 36);
             this.txtTen.TabIndex = 13;
             // 
             // label3
@@ -155,7 +157,7 @@
             // btnSort
             // 
             this.btnSort.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSort.Location = new System.Drawing.Point(715, 160);
+            this.btnSort.Location = new System.Drawing.Point(737, 163);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(140, 45);
             this.btnSort.TabIndex = 10;
@@ -198,10 +200,10 @@
             // dtNgayKT
             // 
             this.dtNgayKT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNgayKT.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayKT.Location = new System.Drawing.Point(414, 168);
             this.dtNgayKT.Name = "dtNgayKT";
-            this.dtNgayKT.Size = new System.Drawing.Size(253, 30);
+            this.dtNgayKT.Size = new System.Drawing.Size(253, 32);
             this.dtNgayKT.TabIndex = 12;
             // 
             // panel3
@@ -225,6 +227,7 @@
             this.cbCapBac.Name = "cbCapBac";
             this.cbCapBac.Size = new System.Drawing.Size(123, 33);
             this.cbCapBac.TabIndex = 7;
+            this.cbCapBac.SelectedValueChanged += new System.EventHandler(this.cbCapBac_SelectedValueChanged);
             // 
             // label2
             // 
@@ -290,6 +293,7 @@
             this.dtgKhachHang.RowTemplate.Height = 24;
             this.dtgKhachHang.Size = new System.Drawing.Size(813, 383);
             this.dtgKhachHang.TabIndex = 1;
+            this.dtgKhachHang.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtgKhachHang_MouseClick);
             // 
             // panel4
             // 
@@ -346,6 +350,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmThongKe";
             this.Text = "frmThongKe";
+            this.Load += new System.EventHandler(this.frmThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
