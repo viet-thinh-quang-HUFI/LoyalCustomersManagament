@@ -32,7 +32,7 @@ namespace GUI
         {
             cboDisk.Items.AddRange(DriveInfo.GetDrives());
             cboCollectionName.DataSource = heThongBLL.GetCollectionName();
-            labelDBSize.Text = Math.Round(heThongBLL.GetDatabaseSize() / 1024, 1).ToString();
+            labelDBSize.Text = Math.Round(heThongBLL.GetDatabaseSize() / 1024, 1).ToString() + " KB";
 
             ShowSizeCollection(lblSizeHang, lblNumDOCHang, "Hang");
             ShowSizeCollection(lblSizeHD, lblNumDOCHD, "HoaDon");
@@ -279,9 +279,9 @@ public static class ConverterExtension
         var mb = Math.Round((double)value / Mb, decimalPlaces);
         var kb = Math.Round((double)value / Kb, decimalPlaces);
         string size = tb > 1 ? string.Format("{0}Tb", tb)
-            : gb > 1 ? string.Format("{0} Gb", gb)
-            : mb > 1 ? string.Format("{0} Mb", mb)
-            : kb > 1 ? string.Format("{0} Kb", kb)
+            : gb > 1 ? string.Format("{0} GB", gb)
+            : mb > 1 ? string.Format("{0} MB", mb)
+            : kb > 1 ? string.Format("{0} KB", kb)
             : string.Format("{0} byte", Math.Round((double)value, decimalPlaces));
         return size;
     }

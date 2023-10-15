@@ -111,6 +111,7 @@
             this.btnExportHang = new System.Windows.Forms.Button();
             this.btnDeleteHang = new System.Windows.Forms.Button();
             this.btnImportHang = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCollectionDetails)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -240,7 +241,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.cboCollectionName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dgvCollectionDetails, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelDBSize, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(40, 40);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -254,11 +254,13 @@
             // labelDBSize
             // 
             this.labelDBSize.AutoSize = true;
-            this.labelDBSize.Location = new System.Drawing.Point(3, 433);
+            this.labelDBSize.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDBSize.ForeColor = System.Drawing.Color.White;
+            this.labelDBSize.Location = new System.Drawing.Point(559, 18);
             this.labelDBSize.Name = "labelDBSize";
-            this.labelDBSize.Size = new System.Drawing.Size(64, 13);
+            this.labelDBSize.Size = new System.Drawing.Size(18, 19);
             this.labelDBSize.TabIndex = 23;
-            this.labelDBSize.Text = "labelDBSize";
+            this.labelDBSize.Text = "0";
             // 
             // tableLayoutPanel2
             // 
@@ -299,9 +301,9 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(3, 200);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 40);
+            this.label6.Size = new System.Drawing.Size(51, 40);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Type";
+            this.label6.Text = "Type:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -468,7 +470,7 @@
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(113, 21);
             this.label21.TabIndex = 17;
-            this.label21.Text = "Number DOC";
+            this.label21.Text = "Number DOC:";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label16
@@ -479,9 +481,9 @@
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(3, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 21);
+            this.label16.Size = new System.Drawing.Size(76, 21);
             this.label16.TabIndex = 16;
-            this.label16.Text = "Size (KB)";
+            this.label16.Text = "Size (KB):";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel15
@@ -655,7 +657,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(113, 23);
             this.label20.TabIndex = 17;
-            this.label20.Text = "Number DOC";
+            this.label20.Text = "Number DOC:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label15
@@ -666,9 +668,9 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(3, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 23);
+            this.label15.Size = new System.Drawing.Size(76, 23);
             this.label15.TabIndex = 16;
-            this.label15.Text = "Size (KB)";
+            this.label15.Text = "Size (KB):";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel14
@@ -829,7 +831,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(113, 23);
             this.label19.TabIndex = 17;
-            this.label19.Text = "Number DOC";
+            this.label19.Text = "Number DOC:";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label14
@@ -840,9 +842,9 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(3, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 23);
+            this.label14.Size = new System.Drawing.Size(76, 23);
             this.label14.TabIndex = 16;
-            this.label14.Text = "Size (KB)";
+            this.label14.Text = "Size (KB):";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblNumDOCKH
@@ -1003,7 +1005,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(113, 22);
             this.label18.TabIndex = 17;
-            this.label18.Text = "Number DOC";
+            this.label18.Text = "Number DOC:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
@@ -1016,7 +1018,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(113, 22);
             this.label13.TabIndex = 16;
-            this.label13.Text = "Size (KB)";
+            this.label13.Text = "Size (KB):";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSizeHD
@@ -1204,7 +1206,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(113, 22);
             this.label17.TabIndex = 16;
-            this.label17.Text = "Number DOC";
+            this.label17.Text = "Number DOC:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
@@ -1217,7 +1219,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(113, 22);
             this.label12.TabIndex = 15;
-            this.label12.Text = "Size (KB)";
+            this.label12.Text = "Size (KB):";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSizeHang
@@ -1325,14 +1327,27 @@
             this.btnImportHang.UseVisualStyleBackColor = false;
             this.btnImportHang.Click += new System.EventHandler(this.btnImportHang_Click);
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.Location = new System.Drawing.Point(428, 16);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(125, 21);
+            this.label22.TabIndex = 25;
+            this.label22.Text = "Database Size:";
+            // 
             // frmHeThong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1323, 639);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.labelDBSize);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmHeThong";
             this.Padding = new System.Windows.Forms.Padding(40);
@@ -1340,7 +1355,6 @@
             this.Text = "frmHeThong";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCollectionDetails)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1375,6 +1389,7 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1463,5 +1478,6 @@
         private System.Windows.Forms.Label lblNumDOCHD;
         private System.Windows.Forms.Label lblNumDOCHang;
         private System.Windows.Forms.Label lblSizeHang;
+        private System.Windows.Forms.Label label22;
     }
 }
