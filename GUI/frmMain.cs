@@ -125,6 +125,7 @@ namespace GUI
             if (frmLogin.isAdmin)
             {
                 ActivateButton(sender, RGBColors.color4);
+                OpenChildForm(new frmNhanVien());
             }
             else
                 MessageBox.Show("Bạn không có quyền truy cập vào đây!", "Loyal Customers Management", MessageBoxButtons.OK, MessageBoxIcon.Stop);
