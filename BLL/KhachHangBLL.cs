@@ -1,10 +1,12 @@
 ﻿using DAL;
 using DTO;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BLL
 {
@@ -38,6 +40,14 @@ namespace BLL
         public List<KhachHang> GetKHtheoEmail(string mail)
         {
             var filter = Builders<KhachHang>.Filter.Eq(a => a.EmailKH, mail);
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
+            return kh;
+        }
+        public List<KhachHang> GetKHtheoTen(string ten)
+        {
+
+            var filter = Builders<KhachHang>.Filter.Regex(a => a.Hoten, BsonRegularExpression.Create(Regex.Escape(ten)));
+            //var filter = Builders<KhachHang>.Filter.AnyIn(a => a.Hoten, ten);
             List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
             return kh;
         }
