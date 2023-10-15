@@ -18,6 +18,7 @@ namespace DTO
         private String _Matkhau;
         private Int16 _KPI;
         private List<String> _MaKH;
+        private Boolean _isAdmin;
 
         [BsonId, BsonElement("_id"), BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get => _id; set => _id = value; }
@@ -35,8 +36,8 @@ namespace DTO
         public short KPI { get => _KPI; set => _KPI = value; }
         [BsonElement("MaKH")]
         public List<string> MaKH { get => _MaKH; set => _MaKH = value; }
-
-        //public List<string> MaKH { get => MaKH1; set => MaKH1 = value; }
+        [BsonElement("Isadmin"), BsonRepresentation(MongoDB.Bson.BsonType.Boolean)]
+        public Boolean IsAdmin { get => _isAdmin; set => _isAdmin = value; }
 
         public NhanVien()
         {

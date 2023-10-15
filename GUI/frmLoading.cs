@@ -20,8 +20,8 @@ namespace GUI
         private void timer1_Tick(object sender, EventArgs e)
         {
             panel1.Width += 3;
-
-            if(panel1.Width >= 534)
+            //534
+            if (panel1.Width >= 100)
             {
                 timer1.Stop();
                 frmMain main = new frmMain();

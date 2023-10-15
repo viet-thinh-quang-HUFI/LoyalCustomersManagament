@@ -399,3 +399,4 @@ D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\BLL\obj\Debug\BLL.csproj
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\BLL\obj\Debug\BLL.dll
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\BLL\obj\Debug\BLL.pdb
+C:\HocTap\NO SQL\LoyalCustomersManagament\BLL\bin\Debug\DTO.dll.config

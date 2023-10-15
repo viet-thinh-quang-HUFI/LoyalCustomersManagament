@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Configuration;
 
 namespace DAL
 {
@@ -21,6 +22,8 @@ namespace DAL
 
         public KetNoi()
         {
+            //var connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            //var databaseName = MongoUrl.Create(connectionString).DatabaseName;
             Client = new MongoClient(connectionString);
             Database = Client.GetDatabase(databaseName);
         }

@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using BLL;
 using DTO;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using static MongoDB.Driver.WriteConcern;
 
 namespace GUI
 {
@@ -64,7 +55,7 @@ namespace GUI
 
             string kq = sanPhamBLL.Them(txtMa.Text, txtTen.Text, txtGia.Text, txtSLT.Text, txtHang.Text);
             MessageBox.Show(kq);
-            load();
+            dataGridView1.DataSource = sanPhamBLL.GetSanPham();
         }
 
         private void frmSanPham_Load(object sender, EventArgs e)
@@ -76,18 +67,11 @@ namespace GUI
             //int start = 0;
             //int end = 2;
 
-            load();
 
-
-
-            //SanPhamBLL.GetMoTa("");
-        }
-        private void load()
-        {
             ProjectionDefinition<SanPham> simpleProjection = Builders<SanPham>.Projection
-              .Exclude(u => u.Id)
-              .Include(u => u.MaSP)
-              .Include(u => u.TenSP);
+                .Exclude(u => u.Id)
+                .Include(u => u.MaSP)
+                .Include(u => u.TenSP);
 
             PipelineDefinition<SanPham, BsonDocument> pipeline = new BsonDocument[]
             {
@@ -107,6 +91,9 @@ namespace GUI
             dataGridView1.DataSource = a;
             dataGridView1.Columns["id"].Visible = false;
             dataGridView1.Columns["Mota"].Visible = false;
+
+
+            //SanPhamBLL.GetMoTa("");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -118,9 +105,8 @@ namespace GUI
             }
             else
             {
-                string kq = sanPhamBLL.Xoa(ma);
-                MessageBox.Show(kq);
-                load();
+                sanPhamBLL.Xoa(ma);
+                dataGridView1.DataSource = sanPhamBLL.GetSanPham();
             }
         }
 
@@ -128,7 +114,7 @@ namespace GUI
         {
             string kq = sanPhamBLL.Sua(txtMa.Text, txtTen.Text, txtGia.Text, txtSLT.Text, txtHang.Text);
             MessageBox.Show(kq);
-            load();
+            dataGridView1.DataSource = sanPhamBLL.GetSanPham();
         }
     }
 }
