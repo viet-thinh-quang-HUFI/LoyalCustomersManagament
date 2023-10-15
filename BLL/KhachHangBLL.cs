@@ -69,7 +69,7 @@ namespace BLL
             }
             var kh = new KhachHang
             {
-                MaKH = ma,Hoten = ten,Tuoi = Convert.ToInt32(tuoi),SDT = sdt,EmailKH = mail, Diem = Convert.ToInt32(diem)
+                MaKH = ma,Hoten = ten,Tuoi = Convert.ToInt32(tuoi),SDT = sdt,EmailKH = mail, Diem = Convert.ToDouble(diem)
             };
             khachHangDAL.Them(kh);
             return "Thêm thành công";
@@ -124,7 +124,7 @@ namespace BLL
                 .Set(a => a.Tuoi, Convert.ToInt32(tuoi))
                 .Set(a => a.SDT, sdt)
                 .Set(a => a.EmailKH, mail)
-                .Set(a => a.Diem, Convert.ToInt32(diem));
+                .Set(a => a.Diem, Convert.ToDouble(diem));
 
             collection.UpdateOne(filter, update);
             return "Sửa thành công";
