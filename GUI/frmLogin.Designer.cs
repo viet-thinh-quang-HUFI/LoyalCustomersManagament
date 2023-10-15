@@ -130,7 +130,7 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(370, 17);
             this.tbPassword.TabIndex = 11;
-            this.tbPassword.Text = "daihuit123";
+            this.tbPassword.Text = "123";
             this.tbPassword.UseSystemPasswordChar = true;
             // 
             // pictureBox4
@@ -162,7 +162,7 @@
             this.tbAccountName.Name = "tbAccountName";
             this.tbAccountName.Size = new System.Drawing.Size(370, 17);
             this.tbAccountName.TabIndex = 10;
-            this.tbAccountName.Text = "daihuit@gmail.com";
+            this.tbAccountName.Text = "admin@gmail.com";
             // 
             // pictureBox3
             // 
