@@ -4,13 +4,16 @@ using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ZstdSharp.Unsafe;
 
@@ -19,16 +22,18 @@ namespace BLL
     public class NhanVienBLL
     {
         NhanVienDAL nhanVienDAL = new NhanVienDAL();
-        IMongoCollection<NhanVien> collection;
+        KhachHangDAL khachHangDAL = new KhachHangDAL();
+        IMongoCollection<NhanVien> collectionNV;
+        IMongoCollection<KhachHang> collectionKH;
 
         public NhanVienBLL()
         {
-            collection = nhanVienDAL.GetNhanVien();
+            collectionNV = nhanVienDAL.GetNhanVien();
         }
 
         public IMongoCollection<NhanVien> GetNV()
         {
-            return collection;
+            return collectionNV;
         }
 
         public List<NhanVien> GetNhanVien()
@@ -38,6 +43,25 @@ namespace BLL
                 .Find(filter)
                 .ToList();
             return nhanViens;
+        }
+
+        public void GetListKHsOfNV(String maNV)
+        {
+            collectionKH = khachHangDAL.GetKhachHang();
+
+            var matchMaNV = Builders<NhanVien>.Filter.Eq(a => a.MaNV, maNV);
+            var lookup = new BsonDocument { { "$lookup", new BsonDocument { { "from", "KhachHang" }, { "localField", "MaKH" }, { "foreignField", "MaKH" }, { "as", "ThongtinKH" } } } };
+
+            //var rs = collectionNV.Aggregate()
+            //    .Match(matchMaNV)
+            //    .Unwind("MaKH")
+                //.Lookup<String, String, NhanVienLookedUp>(collectionKH,
+                //"",
+                //"",
+                //i => i.KhachHangList).ToList();
+            //.Lookup(lookup)
+            //.Project(Builders<BsonDocument>.Projection.Exclude("ThongtinKH"))
+            //.Unwind("ThongtinKH").ToList();
         }
 
         public Byte Login(NhanVien nhanVien)
@@ -55,7 +79,7 @@ namespace BLL
                     Builders<NhanVien>.Filter.Eq(a => a.EmailNV, email),
                     Builders<NhanVien>.Filter.Eq(b => b.Matkhau, password));
 
-                var result = collection.Find(filter).ToList();
+                var result = collectionNV.Find(filter).ToList();
                 if (result.Count > 0)
                 {
                     return 0;
@@ -79,7 +103,7 @@ namespace BLL
 
                 try
                 {
-                    String maNV = collection.Find(filter).SingleOrDefault().MaNV;
+                    String maNV = collectionNV.Find(filter).SingleOrDefault().MaNV;
                     return maNV;
                 }
                 catch
@@ -111,7 +135,7 @@ namespace BLL
             var nv = nhanVienDAL.GetNhanVien().Find(filter).SingleOrDefault().MaKH;
             KhachHangBLL khachHangBLL = new KhachHangBLL();
             List<KhachHang> khachHangs = new List<KhachHang>();
-            if(nv == null)
+            if (nv == null)
             {
                 return null;
             }
@@ -128,7 +152,7 @@ namespace BLL
             try
             {
                 var filter = Builders<NhanVien>.Filter.Empty;
-                collection.DeleteMany(filter);
+                collectionNV.DeleteMany(filter);
                 return 0;
             }
             catch
@@ -146,7 +170,7 @@ namespace BLL
                 Builders<NhanVien>.Filter.Eq(a => a.IsAdmin, true));
 
 
-            var rs = collection.Find(filter).SingleOrDefault();
+            var rs = collectionNV.Find(filter).SingleOrDefault();
             if (rs == null)
                 return false;
             return true;
@@ -162,14 +186,14 @@ namespace BLL
             {
                 try
                 {
-                    await collection.Find(new BsonDocument())
+                    await collectionNV.Find(new BsonDocument())
                     .ForEachAsync(async (document) =>
                     {
                         using (var stringWriter = new StringWriter())
                         using (var jsonWriter = new JsonWriter(stringWriter))
                         {
                             var context = BsonSerializationContext.CreateRoot(jsonWriter);
-                            collection.DocumentSerializer.Serialize(context, document);
+                            collectionNV.DocumentSerializer.Serialize(context, document);
                             var line = stringWriter.ToString();
                             await streamWriter.WriteLineAsync(line);
                         }
@@ -188,7 +212,7 @@ namespace BLL
         {
             bool result = false;
 
-            string inputFileName = @"C:\NhanVien.json";
+            string inputFileName = @"" + fileName;
 
             using (var streamReader = new StreamReader(inputFileName))
             {
@@ -200,8 +224,8 @@ namespace BLL
                         using (var jsonReader = new JsonReader(line))
                         {
                             var context = BsonDeserializationContext.CreateRoot(jsonReader);
-                            var document = collection.DocumentSerializer.Deserialize(context);
-                            await collection.InsertOneAsync(document);
+                            var document = collectionNV.DocumentSerializer.Deserialize(context);
+                            await collectionNV.InsertOneAsync(document);
                         }
                     }
                     result = true;

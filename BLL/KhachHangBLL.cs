@@ -35,6 +35,16 @@ namespace BLL
                 .ToList();
             return khachHangs;
         }
+
+        public List<KhachHang> GetKhachHangByNV(String maNV)
+        {
+            var filter = Builders<KhachHang>.Filter.Empty;
+            var khachHangs = khachHangDAL.GetKhachHang()
+                .Find(filter)
+                .ToList();
+            return khachHangs;
+        }
+
         public KhachHang GetMotKH(string ma)
         {
             var filter = Builders<KhachHang>.Filter.Eq(a => a.MaKH, ma);
