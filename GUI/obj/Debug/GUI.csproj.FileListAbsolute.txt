@@ -619,3 +619,9 @@ C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.xm
 C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.dll
 C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\bin\Debug\WinFormAnimation.dll
 C:\HocTap\NO SQL\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\WinFormAnimation.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmHeThong.resources
