@@ -31,8 +31,11 @@ namespace GUI
 
         private void frmKHtheoNV_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = nhanVienBLL.GetKHtheoNV(frmLogin.mail);
-            dataGridView1.Columns["id"].Visible = false;
+            if(nhanVienBLL.GetKHtheoNV(frmLogin.mail) != null) 
+            {
+                dataGridView1.DataSource = nhanVienBLL.GetKHtheoNV(frmLogin.mail);
+                dataGridView1.Columns["id"].Visible = false;
+            }
         }
     }
 }

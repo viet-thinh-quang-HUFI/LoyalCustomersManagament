@@ -102,6 +102,10 @@ namespace BLL
             var nv = nhanVienDAL.GetNhanVien().Find(filter).SingleOrDefault().MaKH;
             KhachHangBLL khachHangBLL = new KhachHangBLL();
             List<KhachHang> khachHangs = new List<KhachHang>();
+            if(nv == null)
+            {
+                return null;
+            }
             for (int i = 0; i < nv.Count; i++)
             {
                 KhachHang kh = khachHangBLL.GetMotKH(nv[i]);
