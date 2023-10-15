@@ -29,6 +29,29 @@ namespace BLL
             KhachHang kh = khachHangDAL.GetKhachHang().Find(filter).SingleOrDefault();
             return kh;
         }
+        public List<KhachHang> GetKHThongKe(string d)
+        {
+            double diemDau = 0 ;
+            double diemCuoi = 0 ;
+            if(d == "0")
+            {
+                diemCuoi = 100;
+            }
+            if (d == "1")
+            {
+                diemDau = 101;
+                diemCuoi = 1000;
+            }
+            if (d == "2")
+            {
+                diemDau = 1001;
+                diemCuoi = 10000;
+            }
+            var builder = Builders<KhachHang>.Filter;
+            var filter = builder.And(Builders<KhachHang>.Filter.Gte(f => f.Diem, diemDau), Builders<KhachHang>.Filter.Lte(f => f.Diem, diemCuoi));
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
+            return kh;
+        }
         public string Them(string ma, string ten, string tuoi, string sdt, string mail, string diem)
         {
             if (ma == "")
