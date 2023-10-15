@@ -163,5 +163,19 @@ namespace BLL
             var regex = new Regex(pattern, RegexOptions.IgnoreCase);
             return regex.IsMatch(email);
         }
+
+        public Byte DeleteAllKhachHang()
+        {
+            try
+            {
+                var filter = Builders<KhachHang>.Filter.Empty;
+                collection.DeleteMany(filter);
+                return 0;
+            }
+            catch
+            {
+                return 1;
+            }
+        }
     }
 }
