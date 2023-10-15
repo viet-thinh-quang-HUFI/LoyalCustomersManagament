@@ -625,3 +625,9 @@ F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Deb
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.csproj.CopyComplete
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.exe
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.pdb
+D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.dll
+D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\WinFormAnimation.dll
+D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.dll
+D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.xml
+D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.xml
+D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmHeThong.resources

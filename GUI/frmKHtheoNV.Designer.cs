@@ -44,6 +44,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgSanPham = new System.Windows.Forms.DataGridView();
+            this.dgHoadon = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +56,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHoadon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -127,7 +131,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(888, 183);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 23);
+            this.label6.Size = new System.Drawing.Size(50, 19);
             this.label6.TabIndex = 51;
             this.label6.Text = "Điểm";
             // 
@@ -139,7 +143,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(885, 138);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 23);
+            this.label5.Size = new System.Drawing.Size(52, 19);
             this.label5.TabIndex = 50;
             this.label5.Text = "Email";
             // 
@@ -151,7 +155,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(885, 93);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 23);
+            this.label4.Size = new System.Drawing.Size(36, 19);
             this.label4.TabIndex = 49;
             this.label4.Text = "SĐT";
             // 
@@ -163,7 +167,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(64, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 23);
+            this.label3.Size = new System.Drawing.Size(40, 19);
             this.label3.TabIndex = 48;
             this.label3.Text = "Tuổi";
             // 
@@ -175,7 +179,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(64, 136);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 23);
+            this.label2.Size = new System.Drawing.Size(58, 19);
             this.label2.TabIndex = 47;
             this.label2.Text = "Họ tên";
             // 
@@ -187,7 +191,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(62, 91);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 23);
+            this.label7.Size = new System.Drawing.Size(134, 19);
             this.label7.TabIndex = 46;
             this.label7.Text = "Mã khách hàng";
             // 
@@ -199,19 +203,39 @@
             this.label1.ForeColor = System.Drawing.Color.Cornsilk;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1556, 37);
+            this.label1.Size = new System.Drawing.Size(1556, 28);
             this.label1.TabIndex = 6;
             this.label1.Text = "QUẢN LÝ KHÁCH HÀNG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dgSanPham);
+            this.panel2.Controls.Add(this.dgHoadon);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 438);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1556, 614);
             this.panel2.TabIndex = 8;
+            // 
+            // dgSanPham
+            // 
+            this.dgSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSanPham.Location = new System.Drawing.Point(1047, 4);
+            this.dgSanPham.Name = "dgSanPham";
+            this.dgSanPham.Size = new System.Drawing.Size(482, 363);
+            this.dgSanPham.TabIndex = 32;
+            // 
+            // dgHoadon
+            // 
+            this.dgHoadon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgHoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgHoadon.Location = new System.Drawing.Point(640, 4);
+            this.dgHoadon.Name = "dgHoadon";
+            this.dgHoadon.Size = new System.Drawing.Size(401, 363);
+            this.dgHoadon.TabIndex = 31;
+            this.dgHoadon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgHoadon_MouseClick);
             // 
             // dataGridView1
             // 
@@ -247,7 +271,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1542, 363);
+            this.dataGridView1.Size = new System.Drawing.Size(629, 363);
             this.dataGridView1.TabIndex = 30;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -350,7 +374,7 @@
             // 
             // frmKHtheoNV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1562, 1055);
@@ -361,6 +385,8 @@
             this.Text = "frmKHtheoNV";
             this.Load += new System.EventHandler(this.frmKHtheoNV_Load);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgHoadon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -394,5 +420,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn diem;
+        private System.Windows.Forms.DataGridView dgHoadon;
+        private System.Windows.Forms.DataGridView dgSanPham;
     }
 }
