@@ -1,6 +1,7 @@
 ﻿using DAL;
 using DTO;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections;
@@ -36,7 +37,7 @@ namespace BLL
 
         public Double GetDatabaseSize()
         {
-            var command = new CommandDocument { { "dbStats", 1 }, { "scale", 1 } };
+            var command = new CommandDocument { { "dbStats", 1 }, { "scale", 1024 } };
             var result = database.RunCommand<BsonDocument>(command);
             return result["dataSize"].AsDouble;
         }
@@ -78,6 +79,15 @@ namespace BLL
             tb.Rows.Add("Count", count.ToString());
             tb.Rows.Add("State", ok.ToString());
             return tb;
+        }
+
+        public void ImportCollection(String collectionName)
+        {
+            string text = System.IO.File.ReadAllText(@"Hang.JSON");
+
+            var document = BsonSerializer.Deserialize<Hang>(text);
+            var collection = database.GetCollection<Hang>("Hang");
+            collection.InsertOneAsync(document);
         }
 
         //public int GetCollectionCount(String collectionName)
