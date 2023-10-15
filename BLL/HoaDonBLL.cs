@@ -36,5 +36,19 @@ namespace BLL
 
             return (int)time.TotalSeconds;
         }
+
+        public Byte DeleteAllHoaDon()
+        {
+            try
+            {
+                var filter = Builders<HoaDon>.Filter.Empty;
+                collection.DeleteMany(filter);
+                return 0;
+            }
+            catch
+            {
+                return 1;
+            }
+        }
     }
 }

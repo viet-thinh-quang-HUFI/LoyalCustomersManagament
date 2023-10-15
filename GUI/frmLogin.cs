@@ -9,6 +9,8 @@ namespace GUI
     {
         NhanVienBLL nhanVienBLL = new NhanVienBLL();
         public static string mail = "";
+        public static Boolean isAdmin = false;
+
 
         public frmLogin()
         {
@@ -28,11 +30,13 @@ namespace GUI
 
             Byte result = nhanVienBLL.Login(nhanVien);
 
-            if(result == 0)
+            if (result == 0)
             {
+
                 frmLoading f = new frmLoading();
                 f.Show();
                 mail = tbAccountName.Text;
+                isAdmin = nhanVienBLL.CheckIsAdmin(tbAccountName.Text);
                 this.Hide();
             }
             else if (result == 1)

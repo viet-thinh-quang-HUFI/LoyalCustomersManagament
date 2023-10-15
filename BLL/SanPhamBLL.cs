@@ -131,5 +131,19 @@ namespace BLL
             Regex regex = new Regex(@"^[-+]?[0-9]*.?[0-9]+$");
             return regex.IsMatch(pText);
         }
+
+        public Byte DeleteAllSanPham()
+        {
+            try
+            {
+                var filter = Builders<SanPham>.Filter.Empty;
+                collection.DeleteMany(filter);
+                return 0;
+            }
+            catch
+            {
+                return 1;
+            }
+        }
     }
 }

@@ -101,13 +101,42 @@ namespace BLL
             var filter = Builders<NhanVien>.Filter.Eq(a => a.EmailNV, mail);
             var nv = nhanVienDAL.GetNhanVien().Find(filter).SingleOrDefault().MaKH;
             KhachHangBLL khachHangBLL = new KhachHangBLL();
-            List<KhachHang> khachHangs = new List<KhachHang>(); 
+            List<KhachHang> khachHangs = new List<KhachHang>();
             for (int i = 0; i < nv.Count; i++)
             {
                 KhachHang kh = khachHangBLL.GetMotKH(nv[i]);
                 khachHangs.Add(kh);
             }
             return khachHangs;
+        }
+
+        public Byte DeleteAllNhanVien()
+        {
+            try
+            {
+                var filter = Builders<NhanVien>.Filter.Empty;
+                collection.DeleteMany(filter);
+                return 0;
+            }
+            catch
+            {
+                return 1;
+            }
+        }
+
+        public Boolean CheckIsAdmin(String emailNV)
+        {
+            String email = emailNV;
+
+            var filter = Builders<NhanVien>.Filter.And(
+                Builders<NhanVien>.Filter.Eq(a => a.EmailNV, email),
+                Builders<NhanVien>.Filter.Eq(a => a.IsAdmin, true));
+
+
+            var rs = collection.Find(filter).SingleOrDefault();
+            if (rs == null)
+                return false;
+            return true;
         }
     }
 }
