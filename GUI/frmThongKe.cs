@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace GUI
@@ -23,14 +24,17 @@ namespace GUI
         {
             DateTime ngaybd = dtNgayBD.Value.Date;
             DateTime ngaykt = dtNgayKT.Value.Date;
-            if(ngaybd > ngaykt)
+            if (ngaybd > ngaykt)
             {
                 MessageBox.Show("Ngày bắt đầu phải trước ngày kết thúc");
             }
             else
             {
                 dataGridView1.DataSource = hoaDonBLL.GetHoaDon(ngaybd, ngaykt);
+                dataGridView1.Columns["id"].Visible = false;
+                dataGridView1.Columns["NgayLap"].Visible = false;
             }
+            //label6.Text = dtNgayBD.Value.Date.ToString();
         }
     }
 }

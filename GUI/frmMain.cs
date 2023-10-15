@@ -122,18 +122,30 @@ namespace GUI
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            if (frmLogin.isAdmin)
+            {
+                ActivateButton(sender, RGBColors.color4);
+            }
+            else
+                MessageBox.Show("Bạn không có quyền truy cập vào đây!", "Loyal Customers Management", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
+
             ActivateButton(sender, RGBColors.color5);
             OpenChildForm(new frmThongKe());
         }
 
         private void iconButton6_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color6);
+            if (frmLogin.isAdmin)
+            {
+                ActivateButton(sender, RGBColors.color6);
+                OpenChildForm(new frmHeThong());
+            }
+            else
+                MessageBox.Show("Bạn không có quyền truy cập vào đây!", "Loyal Customers Management", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void btnHome_Click(object sender, EventArgs e)

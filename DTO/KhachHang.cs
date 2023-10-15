@@ -38,7 +38,7 @@ namespace DTO
 
         [BsonElement("Diem"), BsonRepresentation(MongoDB.Bson.BsonType.Double)]
         public Double Diem { get => _diem; set => _diem = value; }
-        
+
         [BsonElement("Hoadon")]
         public List<string> Hoadon { get => _hoaDon; set => _hoaDon = value; }
     }
