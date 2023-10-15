@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MongoDB.Bson.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BLL
 {
@@ -49,6 +50,12 @@ namespace BLL
         public List<KhachHang> GetKHtheoEmail(string mail)
         {
             var filter = Builders<KhachHang>.Filter.Eq(a => a.EmailKH, mail);
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
+            return kh;
+        }
+        public List<KhachHang> GetKHtheoTen(string ten)
+        {
+            var filter = Builders<KhachHang>.Filter.Regex(a => a.EmailKH, BsonRegularExpression.Create(Regex.Escape(ten)));
             List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
             return kh;
         }
