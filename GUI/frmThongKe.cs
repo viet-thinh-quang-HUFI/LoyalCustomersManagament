@@ -32,7 +32,5 @@ namespace GUI
                 dataGridView1.DataSource = hoaDonBLL.GetHoaDon(ngaybd, ngaykt);
             }
         }
-
-
     }
 }
