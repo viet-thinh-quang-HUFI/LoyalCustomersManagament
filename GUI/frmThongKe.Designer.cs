@@ -39,13 +39,13 @@
             this.txtDiem = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtNgayBD = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dtNgayKT = new System.Windows.Forms.DateTimePicker();
             this.btnThongKe = new System.Windows.Forms.Button();
-            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgKhachHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -54,22 +54,24 @@
             // 
             this.dtgKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgKhachHang.Location = new System.Drawing.Point(83, 198);
-            this.dtgKhachHang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgKhachHang.Margin = new System.Windows.Forms.Padding(2);
             this.dtgKhachHang.Name = "dtgKhachHang";
             this.dtgKhachHang.RowHeadersWidth = 51;
             this.dtgKhachHang.RowTemplate.Height = 24;
             this.dtgKhachHang.Size = new System.Drawing.Size(494, 311);
             this.dtgKhachHang.TabIndex = 0;
+            this.dtgKhachHang.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dtgKhachHang_MouseClick);
             // 
             // cbCapBac
             // 
             this.cbCapBac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCapBac.FormattingEnabled = true;
             this.cbCapBac.Location = new System.Drawing.Point(203, 83);
-            this.cbCapBac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCapBac.Margin = new System.Windows.Forms.Padding(2);
             this.cbCapBac.Name = "cbCapBac";
             this.cbCapBac.Size = new System.Drawing.Size(93, 28);
             this.cbCapBac.TabIndex = 1;
+            this.cbCapBac.SelectedValueChanged += new System.EventHandler(this.cbCapBac_SelectedValueChanged);
             // 
             // label1
             // 
@@ -98,7 +100,7 @@
             // 
             this.btnSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.Location = new System.Drawing.Point(486, 141);
-            this.btnSort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSort.Margin = new System.Windows.Forms.Padding(2);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(91, 29);
             this.btnSort.TabIndex = 4;
@@ -120,7 +122,7 @@
             // 
             this.txtTen.Enabled = false;
             this.txtTen.Location = new System.Drawing.Point(203, 141);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(2);
             this.txtTen.Multiline = true;
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(245, 30);
@@ -141,7 +143,7 @@
             // 
             this.txtDiem.Enabled = false;
             this.txtDiem.Location = new System.Drawing.Point(394, 83);
-            this.txtDiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDiem.Margin = new System.Windows.Forms.Padding(2);
             this.txtDiem.Multiline = true;
             this.txtDiem.Name = "txtDiem";
             this.txtDiem.Size = new System.Drawing.Size(54, 30);
@@ -166,19 +168,31 @@
             this.MaHD,
             this.TongTien});
             this.dataGridView1.Location = new System.Drawing.Point(733, 198);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(476, 311);
             this.dataGridView1.TabIndex = 7;
             // 
+            // MaHD
+            // 
+            this.MaHD.DataPropertyName = "MaHD";
+            this.MaHD.HeaderText = "Mã hóa đơn";
+            this.MaHD.Name = "MaHD";
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            this.TongTien.HeaderText = "Tổng tiền";
+            this.TongTien.Name = "TongTien";
+            // 
             // dtNgayBD
             // 
             this.dtNgayBD.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayBD.Location = new System.Drawing.Point(888, 88);
-            this.dtNgayBD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtNgayBD.Margin = new System.Windows.Forms.Padding(2);
             this.dtNgayBD.Name = "dtNgayBD";
             this.dtNgayBD.Size = new System.Drawing.Size(151, 26);
             this.dtNgayBD.TabIndex = 8;
@@ -210,7 +224,7 @@
             this.dtNgayKT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNgayKT.Location = new System.Drawing.Point(888, 150);
-            this.dtNgayKT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtNgayKT.Margin = new System.Windows.Forms.Padding(2);
             this.dtNgayKT.Name = "dtNgayKT";
             this.dtNgayKT.Size = new System.Drawing.Size(151, 26);
             this.dtNgayKT.TabIndex = 8;
@@ -219,25 +233,13 @@
             // 
             this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongKe.Location = new System.Drawing.Point(1102, 141);
-            this.btnThongKe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnThongKe.Margin = new System.Windows.Forms.Padding(2);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(106, 33);
             this.btnThongKe.TabIndex = 9;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
-            // 
-            // MaHD
-            // 
-            this.MaHD.DataPropertyName = "MaHD";
-            this.MaHD.HeaderText = "Mã hóa đơn";
-            this.MaHD.Name = "MaHD";
-            // 
-            // TongTien
-            // 
-            this.TongTien.DataPropertyName = "TongTien";
-            this.TongTien.HeaderText = "Tổng tiền";
-            this.TongTien.Name = "TongTien";
             // 
             // frmThongKe
             // 
@@ -260,9 +262,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbCapBac);
             this.Controls.Add(this.dtgKhachHang);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmThongKe";
             this.Text = "frmThongKe";
+            this.Load += new System.EventHandler(this.frmThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgKhachHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
