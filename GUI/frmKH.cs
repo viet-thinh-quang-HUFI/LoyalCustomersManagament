@@ -99,5 +99,21 @@ namespace GUI
                 dataGridView1.DataSource = khachHangBLL.GetKHtheoEmail(txtEmail.Text);
             }
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            if (txtTen.Text == "")
+            {
+                MessageBox.Show("Chưa nhập tên khách hàng");
+            }
+            else if (khachHangBLL.GetKHtheoTen(txtTen.Text) == null)
+            {
+                MessageBox.Show("Không tìm thấy");
+            }
+            else
+            {
+                dataGridView1.DataSource = khachHangBLL.GetKHtheoTen(txtTen.Text);
+            }
+        }
     }
 }
