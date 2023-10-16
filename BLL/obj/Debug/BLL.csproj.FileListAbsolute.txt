@@ -460,3 +460,5 @@ F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\obj\Deb
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\obj\Debug\BLL.pdb
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\bin\Debug\ValidTextLibrary.dll
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\bin\Debug\ValidTextLibrary.pdb
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\BLL\bin\Debug\ValidTextLibrary.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\BLL\bin\Debug\ValidTextLibrary.pdb
