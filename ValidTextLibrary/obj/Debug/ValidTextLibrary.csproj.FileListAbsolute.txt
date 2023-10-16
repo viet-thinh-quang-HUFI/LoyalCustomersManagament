@@ -1,0 +1,6 @@
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\bin\Debug\ValidTextLibrary.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\bin\Debug\ValidTextLibrary.pdb
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.csproj.AssemblyReference.cache
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.csproj.CoreCompileInputs.cache
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.pdb

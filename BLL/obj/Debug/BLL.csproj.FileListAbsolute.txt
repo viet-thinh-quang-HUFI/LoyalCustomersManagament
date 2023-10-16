@@ -458,3 +458,5 @@ F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\obj\Deb
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\obj\Debug\BLL.csproj.CopyComplete
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\obj\Debug\BLL.dll
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\obj\Debug\BLL.pdb
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\bin\Debug\ValidTextLibrary.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\BLL\bin\Debug\ValidTextLibrary.pdb
