@@ -4,3 +4,9 @@ F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLi
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.csproj.CoreCompileInputs.cache
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.dll
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.pdb
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\ValidTextLibrary\bin\Debug\ValidTextLibrary.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\ValidTextLibrary\bin\Debug\ValidTextLibrary.pdb
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.csproj.AssemblyReference.cache
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.csproj.CoreCompileInputs.cache
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\ValidTextLibrary\obj\Debug\ValidTextLibrary.pdb

@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson.IO;
+using System.Collections.ObjectModel;
+using ValidTextLibrary;
 
 namespace BLL
 {
@@ -21,6 +23,27 @@ namespace BLL
         public HoaDonBLL()
         {
             collection = hoaDonDAL.GetHoaDon();
+        }
+
+        public Byte Insert(HoaDon hoaDon)
+        {
+            if (hoaDon.MaHD == String.Empty || hoaDon.Hoadon.Count == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                try
+                {
+                    collection.InsertOne(hoaDon);
+                    return 0;
+                }
+                catch
+                {
+                    return 2;
+
+                }
+            }
         }
 
         public List<HoaDon> GetHoaDon(DateTime ngaydau, DateTime ngaycuoi)

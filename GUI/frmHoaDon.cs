@@ -16,8 +16,9 @@ namespace GUI
 {
     public partial class frmHoaDon : Form
     {
-        //DataTable data = new DataTable();
         SanPhamBLL sanPhamBLL = new SanPhamBLL();
+        HoaDonBLL hoaDonBLL = new HoaDonBLL();
+        List<ndHoaDon> sanPhams = new List<ndHoaDon>();
         public frmHoaDon()
         {
             InitializeComponent();
@@ -25,84 +26,66 @@ namespace GUI
 
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
-            
+
             dataGridView1.DataSource = sanPhamBLL.GetALLSP();
             dataGridView1.ReadOnly = true;
             dataGridView1.AllowUserToAddRows = false;
-            //data.Columns.Add("MaSP");
-            //data.Columns.Add("SoLuongMua");
-            //data.Rows.Add("", "");
-            //dataGridView2.DataSource = data;
+
+            dataGridView2.AllowUserToAddRows = false;
         }
 
         private void btnCHoaDon_Click(object sender, EventArgs e)
         {
             String MaSP = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            String SoLuongMua = txtSoLuongMua.Text;
-            //DataGridViewRow row = (DataGridViewRow)dataGridView2.Rows[0].Clone();
-            //row.Cells["MaSP"].Value = MaSP;
-            //row.Cells["SoLuongMua"].Value = SoLuongMua;
-            //var index = dataGridView2.Rows.Add();
-            //dataGridView2.Rows[index].Cells["MaSP"].Value = MaSP;
-            //dataGridView2.Rows[index].Cells["SoLuongMua"].Value = SoLuongMua;
-            //DataRow newrow = data.NewRow();
-            //string[] strings = {MaSP, SoLuongMua};
-            //newrow.ItemArray[3] = strings;
-            //data.Rows.Add (newrow);
+            int SoLuongMua = Convert.ToInt32(txtSoLuongMua.Value);
+            if (SoLuongMua <= 0)
+            {
+                MessageBox.Show("Nhập sô lượng mua");
+                return;
+            }
             dataGridView2.Rows.Add(MaSP, SoLuongMua);
-
-
-
-            //for (int i = 1; i <= dataGridView1.Rows.Count - 1; i++)
-            //{
-
-            //    bool rowAlreadyExist = false;
-            //    bool checkedCell = (bool)dataGridView1.Rows[i].Cells[7].Value;
-            //    if (checkedCell == true)
-            //    {
-            //        DataGridViewRow row = dataGridView1.Rows[i];
-
-            //        if (dataGridView2.Rows.Count != 0)
-            //        {
-            //            for (int j = 1; j <= dataGridView2.Rows.Count - 1; j++)
-            //            {
-            //                if (row.Cells[0].Value.ToString() == dataGridView2.Rows[j].Cells[1].Value.ToString())
-            //                {
-            //                    rowAlreadyExist = true;
-            //                    break;
-            //                }
-            //            }
-
-
-            //            if (rowAlreadyExist == false)
-            //            {
-            //                dataGridView2.Rows.Add(row.Cells[1].Value.ToString(),
-            //                                       row.Cells[2].Value.ToString(),
-            //                                       row.Cells[3].Value.ToString(),
-            //                                       row.Cells[4].Value.ToString(),
-            //                                       row.Cells[5].Value.ToString(),
-            //                                       row.Cells[6].Value.ToString()
-            //                                       );
-            //            }
-            //        }
-
-            //        else
-            //        {
-            //            dataGridView2.Rows.Add(row.Cells[0].Value.ToString(),
-            //                                       row.Cells[1].Value.ToString(),
-            //                                       row.Cells[2].Value.ToString(),
-            //                                       row.Cells[3].Value.ToString(),
-            //                                       row.Cells[4].Value.ToString(),
-            //                                       row.Cells[5].Value.ToString()
-            //                                       );
-            //        }
-            //    }
-            //}
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow dr in dataGridView2.Rows)
+            {
+                ndHoaDon item = new ndHoaDon();
+                item.MaSP = (string)dr.Cells[0].Value;
+                item.Sl = Convert.ToInt32(dr.Cells[1].Value);
+
+                sanPhams.Add(item);
+            }
+
+            HoaDon hd = new HoaDon();
+            hd.MaHD = tbMaHD.Text;
+            hd.Hoadon = sanPhams;
+
+            var s = hoaDonBLL.Insert(hd);
+            if (s == 0)
+            {
+                MessageBox.Show("Thanh cong");
+            }
+            else if (s == 1)
+            {
+                MessageBox.Show("Thêm đủ thông tin");
+            }
+            else
+            {
+                MessageBox.Show("Trúng khóa");
+            }
+        }
+
+        private void btnCSanPham_Click(object sender, EventArgs e)
+        {
+            int position = dataGridView2.CurrentRow.Index;
+            if (position > 0)
+                dataGridView2.Rows.RemoveAt(position);
         }
     }
 }

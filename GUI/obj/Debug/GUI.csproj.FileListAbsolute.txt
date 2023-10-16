@@ -637,3 +637,15 @@ F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Deb
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.DialogTopKPI.resources
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\ValidTextLibrary.dll
 F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\ValidTextLibrary.pdb
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\WinFormAnimation.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\ValidTextLibrary.dll
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.xml
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.xml
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\bin\Debug\ValidTextLibrary.pdb
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.DialogTopKPI.resources
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmHeThong.resources
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmHoaDon.resources
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmKHtheoNV.resources
+D:\NGUYENPHUONGVIET\2023-2024_Nam4-HK1\NoSQL\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmNhanVien.resources
