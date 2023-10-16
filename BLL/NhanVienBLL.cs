@@ -45,20 +45,77 @@ namespace BLL
             return nhanViens;
         }
 
-        public void GetListKHsOfNV(String maNV)
+        public BsonArray GetListKHsOfNV(String maNV)
         {
-            collectionKH = khachHangDAL.GetKhachHang();
+            //    collectionKH = khachHangDAL.GetKhachHang();
 
-            var matchMaNV = Builders<NhanVien>.Filter.Eq(a => a.MaNV, maNV);
-            var lookup = new BsonDocument { { "$lookup", new BsonDocument { { "from", "KhachHang" }, { "localField", "MaKH" }, { "foreignField", "MaKH" }, { "as", "ThongtinKH" } } } };
+            //    var matchMaNV = Builders<NhanVien>.Filter.Eq(a => a.MaNV, maNV);
+            //    //var lookup = new BsonDocument { { "$lookup", new BsonDocument { { "from", "KhachHang" }, { "localField", "MaKH" }, { "foreignField", "MaKH" }, { "as", "ThongtinKH" } } } };
 
-            //var rs = collectionNV.Aggregate()
-            //    .Match(matchMaNV)
-            //    .Unwind("MaKH")
-                //.Lookup<String, String, NhanVienLookedUp>(collectionKH,
-                //"",
-                //"",
-                //i => i.KhachHangList).ToList();
+            //    NhanVienLookedUp nhanVienLookedUp;
+
+            //    var match = new BsonDocument
+            //   {
+            //     {
+            //        "$match",
+            //         new BsonDocument
+            //            {
+            //              {  "released", new BsonDocument
+            //                  {
+            //                     {"$gte", 1984},
+            //                  }
+            //              }
+            //           }
+            //       }
+            //   };
+
+            //    var unwind = new BsonDocument { { "$unwind", "$MaKH" } };
+
+            //    var group = new BsonDocument
+            //     {
+            //         { "$group",
+            //             new BsonDocument  {
+            //                                 { "Danhsach", new BsonDocument  {  { "$addToSet", "$Thongtin" }  }}
+            //                   }
+            //            }
+            //       };
+
+            //    BsonDocument lookup = new BsonDocument{
+            //    {
+            //        "$lookup", new BsonDocument{
+            //            { "from", "KhachHang" },
+            //            { "localField", "MaKH" },
+            //            { "foreignField", "MaKH" },
+            //            { "as", "Thongtin" }
+            //        }
+            //    }
+            //};
+
+            //    var pipeline = new[] { match, unwind };
+
+            List<BsonDocument> rs = collectionNV.Aggregate()
+                .Match(new BsonDocument { { "MaNV", "NV01" } })
+                .Unwind("MaKH")
+                .Lookup("KhachHang", "MaKH", "MaKH", "Thongtin")
+                .Unwind("Thongtin")
+                .Group(new BsonDocument{
+                        { "_id", "$MaNV" },
+                        {
+                            "Danhsach", new BsonDocument{
+                                { "$addToSet", "$Thongtin" }
+                            }
+                        }
+                    })
+                .Project(new BsonDocument{
+                    { "_id", 0 },
+                    { "Danhsach", 1 },
+                }).ToList();
+
+
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            Console.WriteLine(rs[0].GetValue("Danhsach").AsBsonArray);
+
+            return rs[0].GetValue("Danhsach").AsBsonArray;
             //.Lookup(lookup)
             //.Project(Builders<BsonDocument>.Projection.Exclude("ThongtinKH"))
             //.Unwind("ThongtinKH").ToList();

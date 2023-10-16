@@ -1,21 +1,9 @@
 ﻿using BLL;
-using MongoDB.Bson;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace GUI
 {
@@ -73,7 +61,7 @@ namespace GUI
 
         private void DisplayDGV_KHsOfNV()
         {
-            dgvKhachHang.DataSource = khachHangBLL.GetKH();
+            dgvKhachHang.DataSource = nhanVienBLL.GetListKHsOfNV("");
         }
 
         private void RoundImageChanger(PictureBox pb, String url)
