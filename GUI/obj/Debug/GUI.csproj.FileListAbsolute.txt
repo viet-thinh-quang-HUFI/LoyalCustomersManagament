@@ -631,3 +631,4 @@ D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Dr
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\CircularProgressBar.xml
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.xml
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmHeThong.resources
+D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmNhanVien.resources
