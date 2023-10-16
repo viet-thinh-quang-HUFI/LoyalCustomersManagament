@@ -6,6 +6,10 @@ using DAL;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Text.RegularExpressions;
+using MongoDB.Bson.Serialization;
+using System.IO;
+using System.Threading.Tasks;
+using MongoDB.Bson.IO;
 
 namespace BLL
 {
@@ -17,6 +21,11 @@ namespace BLL
         public SanPhamBLL()
         {
             collection = sanPhamDAL.GetSanPham();
+        }
+
+        public IMongoCollection<SanPham> GetSP()
+        {
+            return collection;
         }
 
         public IMongoCollection<SanPham> GetSanPham()
@@ -150,6 +159,68 @@ namespace BLL
             {
                 return 1;
             }
+        }
+
+        public async Task ExportSanPham(String fileName, Action<bool> callBack)
+        {
+            bool result = false;
+
+            string outputFileName = @"" + fileName;
+
+            using (var streamWriter = new StreamWriter(outputFileName))
+            {
+                try
+                {
+                    await collection.Find(new BsonDocument())
+                    .ForEachAsync(async (document) =>
+                    {
+                        using (var stringWriter = new StringWriter())
+                        using (var jsonWriter = new JsonWriter(stringWriter))
+                        {
+                            var context = BsonSerializationContext.CreateRoot(jsonWriter);
+                            collection.DocumentSerializer.Serialize(context, document);
+                            var line = stringWriter.ToString();
+                            await streamWriter.WriteLineAsync(line);
+                        }
+                    });
+                    result = true;
+                }
+                catch
+                {
+                    result = false;
+                }
+            }
+            if (callBack != null) callBack(result);
+        }
+
+        public async Task ImportSanPham(String fileName, Action<bool> callBack)
+        {
+            bool result = false;
+
+            string inputFileName = @"" + fileName;
+
+            using (var streamReader = new StreamReader(inputFileName))
+            {
+                string line;
+                try
+                {
+                    while ((line = await streamReader.ReadLineAsync()) != null)
+                    {
+                        using (var jsonReader = new JsonReader(line))
+                        {
+                            var context = BsonDeserializationContext.CreateRoot(jsonReader);
+                            var document = collection.DocumentSerializer.Deserialize(context);
+                            await collection.InsertOneAsync(document);
+                        }
+                    }
+                    result = true;
+                }
+                catch
+                {
+                    result = false;
+                }
+            }
+            if (callBack != null) callBack(result);
         }
     }
 }

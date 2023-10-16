@@ -13,7 +13,7 @@ namespace GUI
 {
     public partial class frmKH : Form
     {
-        KhachHangBLL KhachHangBLL = new KhachHangBLL();
+        KhachHangBLL khachHangBLL = new KhachHangBLL();
         public frmKH()
         {
             InitializeComponent();
@@ -21,13 +21,13 @@ namespace GUI
 
         private void load()
         {
-            dataGridView1.DataSource = KhachHangBLL.GetKhachHang();
+            dataGridView1.DataSource = khachHangBLL.GetKhachHang();
             dataGridView1.Columns["id"].Visible = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string kq = KhachHangBLL.Them(txtMa.Text,txtTen.Text,txtTuoi.Text,txtSDT.Text,txtEmail.Text,txtDiem.Text);
+            string kq = khachHangBLL.Them(txtMa.Text,txtTen.Text,txtTuoi.Text,txtSDT.Text,txtEmail.Text,txtDiem.Text);
             MessageBox.Show(kq);
             load();
         }
@@ -51,14 +51,14 @@ namespace GUI
             }
             else
             {
-                KhachHangBLL.Xoa(ma);
+                khachHangBLL.Xoa(ma);
                 load();
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string kq = KhachHangBLL.Sua(txtMa.Text, txtTen.Text, txtTuoi.Text, txtSDT.Text, txtEmail.Text, txtDiem.Text);
+            string kq = khachHangBLL.Sua(txtMa.Text, txtTen.Text, txtTuoi.Text, txtSDT.Text, txtEmail.Text, txtDiem.Text);
             MessageBox.Show(kq);
             load();
         }
@@ -66,6 +66,54 @@ namespace GUI
         private void frmKH_Load(object sender, EventArgs e)
         {
             load();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            if(txtSDT.Text == "")
+            {
+                MessageBox.Show("Chưa nhập số điện thoại");
+            }
+            else if(khachHangBLL.GetKHtheoSDT(txtSDT.Text)==null)
+            {
+                MessageBox.Show("Không tìm thấy");
+            }
+            else {
+                dataGridView1.DataSource = khachHangBLL.GetKHtheoSDT(txtSDT.Text);
+            }
+              
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Chưa nhập email");
+            }
+            else if (khachHangBLL.GetKHtheoEmail(txtEmail.Text) == null)
+            {
+                MessageBox.Show("Không tìm thấy");
+            }
+            else
+            {
+                dataGridView1.DataSource = khachHangBLL.GetKHtheoEmail(txtEmail.Text);
+            }
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            if (txtTen.Text == "")
+            {
+                MessageBox.Show("Chưa nhập tên khách hàng");
+            }
+            else if (khachHangBLL.GetKHtheoTen(txtTen.Text) == null)
+            {
+                MessageBox.Show("Không tìm thấy");
+            }
+            else
+            {
+                dataGridView1.DataSource = khachHangBLL.GetKHtheoTen(txtTen.Text);
+            }
         }
     }
 }

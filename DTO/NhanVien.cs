@@ -19,6 +19,7 @@ namespace DTO
         private Int16 _KPI;
         private List<String> _MaKH;
         private Boolean _isAdmin;
+        private String _avatar;
 
         [BsonId, BsonElement("_id"), BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get => _id; set => _id = value; }
@@ -38,6 +39,8 @@ namespace DTO
         public List<string> MaKH { get => _MaKH; set => _MaKH = value; }
         [BsonElement("Isadmin"), BsonRepresentation(MongoDB.Bson.BsonType.Boolean)]
         public Boolean IsAdmin { get => _isAdmin; set => _isAdmin = value; }
+        [BsonElement("Avatar"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string Avatar { get => _avatar; set => _avatar = value; }
 
         public NhanVien()
         {
@@ -49,5 +52,10 @@ namespace DTO
             Int16 _KPI = 0;
             List<String> _MaKH = new List<string>();
         }
+    }
+
+    public class NhanVienLookedUp : NhanVien
+    {
+        public List<KhachHang> KhachHangList { get; set; }
     }
 }

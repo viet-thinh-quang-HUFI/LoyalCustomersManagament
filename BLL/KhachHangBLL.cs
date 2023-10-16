@@ -1,10 +1,16 @@
 ﻿using DAL;
 using DTO;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using MongoDB.Bson.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BLL
 {
@@ -15,6 +21,12 @@ namespace BLL
         public KhachHangBLL() {
             collection = khachHangDAL.GetKhachHang();
         }
+
+        public IMongoCollection<KhachHang> GetKH()
+        {
+            return collection;
+        }
+
         public List<KhachHang> GetKhachHang()
         {
             var filter = Builders<KhachHang>.Filter.Empty;
@@ -23,10 +35,38 @@ namespace BLL
                 .ToList();
             return khachHangs;
         }
+
+        public List<KhachHang> GetKhachHangByNV(String maNV)
+        {
+            var filter = Builders<KhachHang>.Filter.Empty;
+            var khachHangs = khachHangDAL.GetKhachHang()
+                .Find(filter)
+                .ToList();
+            return khachHangs;
+        }
+
         public KhachHang GetMotKH(string ma)
         {
             var filter = Builders<KhachHang>.Filter.Eq(a => a.MaKH, ma);
             KhachHang kh = khachHangDAL.GetKhachHang().Find(filter).SingleOrDefault();
+            return kh;
+        }
+        public List<KhachHang> GetKHtheoSDT(string sdt)
+        {
+            var filter = Builders<KhachHang>.Filter.Eq(a => a.SDT, sdt);
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
+            return kh;
+        }
+        public List<KhachHang> GetKHtheoEmail(string mail)
+        {
+            var filter = Builders<KhachHang>.Filter.Eq(a => a.EmailKH, mail);
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
+            return kh;
+        }
+        public List<KhachHang> GetKHtheoTen(string ten)
+        {
+            var filter = Builders<KhachHang>.Filter.Regex(a => a.EmailKH, BsonRegularExpression.Create(Regex.Escape(ten)));
+            List<KhachHang> kh = khachHangDAL.GetKhachHang().Find(filter).ToList();
             return kh;
         }
         public List<KhachHang> GetKHThongKe(string d)
@@ -194,6 +234,68 @@ namespace BLL
             {
                 return 1;
             }
+        }
+
+        public async Task ExportKhachHang(String fileName, Action<bool> callBack)
+        {
+            bool result = false;
+
+            string outputFileName = @"" + fileName;
+
+            using (var streamWriter = new StreamWriter(outputFileName))
+            {
+                try
+                {
+                    await collection.Find(new BsonDocument())
+                    .ForEachAsync(async (document) =>
+                    {
+                        using (var stringWriter = new StringWriter())
+                        using (var jsonWriter = new JsonWriter(stringWriter))
+                        {
+                            var context = BsonSerializationContext.CreateRoot(jsonWriter);
+                            collection.DocumentSerializer.Serialize(context, document);
+                            var line = stringWriter.ToString();
+                            await streamWriter.WriteLineAsync(line);
+                        }
+                    });
+                    result = true;
+                }
+                catch
+                {
+                    result = false;
+                }
+            }
+            if (callBack != null) callBack(result);
+        }
+
+        public async Task ImportKhachHang(String fileName, Action<bool> callBack)
+        {
+            bool result = false;
+
+            string inputFileName = @"" + fileName;
+
+            using (var streamReader = new StreamReader(inputFileName))
+            {
+                string line;
+                try
+                {
+                    while ((line = await streamReader.ReadLineAsync()) != null)
+                    {
+                        using (var jsonReader = new JsonReader(line))
+                        {
+                            var context = BsonDeserializationContext.CreateRoot(jsonReader);
+                            var document = collection.DocumentSerializer.Deserialize(context);
+                            await collection.InsertOneAsync(document);
+                        }
+                    }
+                    result = true;
+                }
+                catch
+                {
+                    result = false;
+                }
+            }
+            if (callBack != null) callBack(result);
         }
     }
 }

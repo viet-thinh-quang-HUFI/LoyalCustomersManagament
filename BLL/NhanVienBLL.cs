@@ -1,13 +1,20 @@
 ﻿using DAL;
 using DTO;
 using MongoDB.Bson;
+using MongoDB.Bson.IO;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using ZstdSharp.Unsafe;
 
 namespace BLL
@@ -15,11 +22,18 @@ namespace BLL
     public class NhanVienBLL
     {
         NhanVienDAL nhanVienDAL = new NhanVienDAL();
-        IMongoCollection<NhanVien> collection;
+        KhachHangDAL khachHangDAL = new KhachHangDAL();
+        IMongoCollection<NhanVien> collectionNV;
+        IMongoCollection<KhachHang> collectionKH;
 
         public NhanVienBLL()
         {
-            collection = nhanVienDAL.GetNhanVien();
+            collectionNV = nhanVienDAL.GetNhanVien();
+        }
+
+        public IMongoCollection<NhanVien> GetNV()
+        {
+            return collectionNV;
         }
 
         public List<NhanVien> GetNhanVien()
@@ -29,6 +43,82 @@ namespace BLL
                 .Find(filter)
                 .ToList();
             return nhanViens;
+        }
+
+        public BsonArray GetListKHsOfNV(String maNV)
+        {
+            //    collectionKH = khachHangDAL.GetKhachHang();
+
+            //    var matchMaNV = Builders<NhanVien>.Filter.Eq(a => a.MaNV, maNV);
+            //    //var lookup = new BsonDocument { { "$lookup", new BsonDocument { { "from", "KhachHang" }, { "localField", "MaKH" }, { "foreignField", "MaKH" }, { "as", "ThongtinKH" } } } };
+
+            //    NhanVienLookedUp nhanVienLookedUp;
+
+            //    var match = new BsonDocument
+            //   {
+            //     {
+            //        "$match",
+            //         new BsonDocument
+            //            {
+            //              {  "released", new BsonDocument
+            //                  {
+            //                     {"$gte", 1984},
+            //                  }
+            //              }
+            //           }
+            //       }
+            //   };
+
+            //    var unwind = new BsonDocument { { "$unwind", "$MaKH" } };
+
+            //    var group = new BsonDocument
+            //     {
+            //         { "$group",
+            //             new BsonDocument  {
+            //                                 { "Danhsach", new BsonDocument  {  { "$addToSet", "$Thongtin" }  }}
+            //                   }
+            //            }
+            //       };
+
+            //    BsonDocument lookup = new BsonDocument{
+            //    {
+            //        "$lookup", new BsonDocument{
+            //            { "from", "KhachHang" },
+            //            { "localField", "MaKH" },
+            //            { "foreignField", "MaKH" },
+            //            { "as", "Thongtin" }
+            //        }
+            //    }
+            //};
+
+            //    var pipeline = new[] { match, unwind };
+
+            List<BsonDocument> rs = collectionNV.Aggregate()
+                .Match(new BsonDocument { { "MaNV", "NV01" } })
+                .Unwind("MaKH")
+                .Lookup("KhachHang", "MaKH", "MaKH", "Thongtin")
+                .Unwind("Thongtin")
+                .Group(new BsonDocument{
+                        { "_id", "$MaNV" },
+                        {
+                            "Danhsach", new BsonDocument{
+                                { "$addToSet", "$Thongtin" }
+                            }
+                        }
+                    })
+                .Project(new BsonDocument{
+                    { "_id", 0 },
+                    { "Danhsach", 1 },
+                }).ToList();
+
+
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            Console.WriteLine(rs[0].GetValue("Danhsach").AsBsonArray);
+
+            return rs[0].GetValue("Danhsach").AsBsonArray;
+            //.Lookup(lookup)
+            //.Project(Builders<BsonDocument>.Projection.Exclude("ThongtinKH"))
+            //.Unwind("ThongtinKH").ToList();
         }
 
         public Byte Login(NhanVien nhanVien)
@@ -46,7 +136,7 @@ namespace BLL
                     Builders<NhanVien>.Filter.Eq(a => a.EmailNV, email),
                     Builders<NhanVien>.Filter.Eq(b => b.Matkhau, password));
 
-                var result = collection.Find(filter).ToList();
+                var result = collectionNV.Find(filter).ToList();
                 if (result.Count > 0)
                 {
                     return 0;
@@ -70,7 +160,7 @@ namespace BLL
 
                 try
                 {
-                    String maNV = collection.Find(filter).SingleOrDefault().MaNV;
+                    String maNV = collectionNV.Find(filter).SingleOrDefault().MaNV;
                     return maNV;
                 }
                 catch
@@ -102,7 +192,7 @@ namespace BLL
             var nv = nhanVienDAL.GetNhanVien().Find(filter).SingleOrDefault().MaKH;
             KhachHangBLL khachHangBLL = new KhachHangBLL();
             List<KhachHang> khachHangs = new List<KhachHang>();
-            if(nv == null)
+            if (nv == null)
             {
                 return null;
             }
@@ -119,7 +209,7 @@ namespace BLL
             try
             {
                 var filter = Builders<NhanVien>.Filter.Empty;
-                collection.DeleteMany(filter);
+                collectionNV.DeleteMany(filter);
                 return 0;
             }
             catch
@@ -137,10 +227,72 @@ namespace BLL
                 Builders<NhanVien>.Filter.Eq(a => a.IsAdmin, true));
 
 
-            var rs = collection.Find(filter).SingleOrDefault();
+            var rs = collectionNV.Find(filter).SingleOrDefault();
             if (rs == null)
                 return false;
             return true;
+        }
+
+        public async Task ExportNhanVien(String fileName, Action<bool> callBack)
+        {
+            bool result = false;
+
+            string outputFileName = @"" + fileName;
+
+            using (var streamWriter = new StreamWriter(outputFileName))
+            {
+                try
+                {
+                    await collectionNV.Find(new BsonDocument())
+                    .ForEachAsync(async (document) =>
+                    {
+                        using (var stringWriter = new StringWriter())
+                        using (var jsonWriter = new JsonWriter(stringWriter))
+                        {
+                            var context = BsonSerializationContext.CreateRoot(jsonWriter);
+                            collectionNV.DocumentSerializer.Serialize(context, document);
+                            var line = stringWriter.ToString();
+                            await streamWriter.WriteLineAsync(line);
+                        }
+                    });
+                    result = true;
+                }
+                catch
+                {
+                    result = false;
+                }
+            }
+            if (callBack != null) callBack(result);
+        }
+
+        public async Task ImportNhanVien(String fileName, Action<bool> callBack)
+        {
+            bool result = false;
+
+            string inputFileName = @"" + fileName;
+
+            using (var streamReader = new StreamReader(inputFileName))
+            {
+                string line;
+                try
+                {
+                    while ((line = await streamReader.ReadLineAsync()) != null)
+                    {
+                        using (var jsonReader = new JsonReader(line))
+                        {
+                            var context = BsonDeserializationContext.CreateRoot(jsonReader);
+                            var document = collectionNV.DocumentSerializer.Deserialize(context);
+                            await collectionNV.InsertOneAsync(document);
+                        }
+                    }
+                    result = true;
+                }
+                catch
+                {
+                    result = false;
+                }
+            }
+            if (callBack != null) callBack(result);
         }
     }
 }
