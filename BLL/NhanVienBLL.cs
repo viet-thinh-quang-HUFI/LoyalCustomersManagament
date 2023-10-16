@@ -4,18 +4,14 @@ using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
-using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Data;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using ZstdSharp.Unsafe;
+using ValidTextLibrary;
 
 namespace BLL
 {
@@ -25,6 +21,7 @@ namespace BLL
         KhachHangDAL khachHangDAL = new KhachHangDAL();
         IMongoCollection<NhanVien> collectionNV;
         IMongoCollection<KhachHang> collectionKH;
+        ValidText validText = new ValidText();
 
         public NhanVienBLL()
         {
@@ -45,56 +42,154 @@ namespace BLL
             return nhanViens;
         }
 
-        public BsonArray GetListKHsOfNV(String maNV)
+        public Byte AddNhanVien(NhanVien nhanVien)
         {
-            //    collectionKH = khachHangDAL.GetKhachHang();
+            if (nhanVien.MaNV == String.Empty || nhanVien.EmailNV == String.Empty || nhanVien.Matkhau == String.Empty)
+            {
+                return 1;
+            }
+            else if (!validText.IsValidEmail(nhanVien.EmailNV))
+            {
+                return 2;
+            }
+            else
+            {
+                try
+                {
+                    collectionNV.InsertOne(nhanVien);
+                    return 0;
+                }
+                catch
+                {
+                    return 3;
 
-            //    var matchMaNV = Builders<NhanVien>.Filter.Eq(a => a.MaNV, maNV);
-            //    //var lookup = new BsonDocument { { "$lookup", new BsonDocument { { "from", "KhachHang" }, { "localField", "MaKH" }, { "foreignField", "MaKH" }, { "as", "ThongtinKH" } } } };
+                }
+            }
+        }
 
-            //    NhanVienLookedUp nhanVienLookedUp;
+        public Byte DeleteNhanVien(String maNV)
+        {
+            if (maNV == String.Empty)
+            {
+                return 1;
+            }
+            else
+            {
+                if (CheckPrimaryKeyNV(maNV) == false)
+                {
+                    collectionNV.DeleteOne(a => a.MaNV == maNV);
+                    return 0;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+        }
 
-            //    var match = new BsonDocument
-            //   {
-            //     {
-            //        "$match",
-            //         new BsonDocument
-            //            {
-            //              {  "released", new BsonDocument
-            //                  {
-            //                     {"$gte", 1984},
-            //                  }
-            //              }
-            //           }
-            //       }
-            //   };
+        public Byte UpdateNhanVien(NhanVien nhanVien)
+        {
+            if (nhanVien.MaNV == String.Empty || nhanVien.EmailNV == String.Empty || nhanVien.Matkhau == String.Empty)
+            {
+                return 1;
+            }
+            else if (!validText.IsValidEmail(nhanVien.EmailNV))
+            {
+                return 2;
+            }
+            else
+            {
+                if (CheckPrimaryKeyNV(nhanVien.MaNV) == false)
+                {
+                    var filter = Builders<NhanVien>.Filter.Eq(a => a.MaNV, nhanVien.MaNV);
+                    var update = Builders<NhanVien>.Update
+                        .Set(a => a.HotenNV, nhanVien.HotenNV)
+                        .Set(a => a.EmailNV, nhanVien.EmailNV)
+                        .Set(a => a.Matkhau, nhanVien.Matkhau)
+                        .Set(a => a.KPI, nhanVien.KPI)
+                        .Set(a => a.IsAdmin, nhanVien.IsAdmin);
+                    collectionNV.UpdateOne(filter, update);
+                    return 0;
+                }
+                else
+                {
+                    return 3;
+                }
+            }
+        }
 
-            //    var unwind = new BsonDocument { { "$unwind", "$MaKH" } };
+        public Boolean CheckPrimaryKeyNV(String maNV)
+        {
+            String ma = maNV;
 
-            //    var group = new BsonDocument
-            //     {
-            //         { "$group",
-            //             new BsonDocument  {
-            //                                 { "Danhsach", new BsonDocument  {  { "$addToSet", "$Thongtin" }  }}
-            //                   }
-            //            }
-            //       };
+            if (ma == String.Empty)
+            {
+                return false;
+            }
+            else
+            {
+                var filter = Builders<NhanVien>.Filter.Eq(a => a.MaNV, ma);
+                var project = Builders<NhanVien>.Projection.Include(x => x.MaNV);
 
-            //    BsonDocument lookup = new BsonDocument{
-            //    {
-            //        "$lookup", new BsonDocument{
-            //            { "from", "KhachHang" },
-            //            { "localField", "MaKH" },
-            //            { "foreignField", "MaKH" },
-            //            { "as", "Thongtin" }
-            //        }
-            //    }
-            //};
+                try
+                {
+                    String rs = collectionNV.Find(filter).SingleOrDefault().MaNV;
+                    return false;
+                }
+                catch
+                {
+                    return true;
+                }
+            }
+        }
 
-            //    var pipeline = new[] { match, unwind };
+        public List<NhanVien> GetTopKPI()
+        {
+            try
+            {
+                var filter = Builders<NhanVien>.Filter.Empty;
 
-            List<BsonDocument> rs = collectionNV.Aggregate()
-                .Match(new BsonDocument { { "MaNV", "NV01" } })
+                var rs = collectionNV.Find(filter).SortByDescending(x => x.KPI).Limit(3).ToList();
+
+                return rs;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public List<NhanVien> SearchByTen(String query)
+        {
+            var filter = Builders<NhanVien>.Filter.Regex("HotenNV", new BsonRegularExpression(query));
+            var rs = collectionNV.Find(filter).ToList();
+
+            return rs;
+        }
+
+        public List<NhanVien> SearchByEmail(String query)
+        {
+            var filter = Builders<NhanVien>.Filter.Regex("EmailNV", new BsonRegularExpression(query));
+            var rs = collectionNV.Find(filter).ToList();
+
+            return rs;
+        }
+
+        public DataTable GetListKHsOfNV(String maNV)
+        {
+            IEnumerable<KhachHang> allKHs;
+            DataTable tb = new DataTable();
+            tb.Columns.Add("Mã khách hàng");
+            tb.Columns.Add("Tên khách hàng");
+            tb.Columns.Add("Số điểm");
+            tb.Columns.Add("Cấp bậc");
+            tb.Columns.Add("Số điện thoại");
+            tb.Columns.Add("Email");
+
+            try
+            {
+                var rs = collectionNV.Aggregate()
+                .Match(new BsonDocument { { "MaNV", maNV } })
                 .Unwind("MaKH")
                 .Lookup("KhachHang", "MaKH", "MaKH", "Thongtin")
                 .Unwind("Thongtin")
@@ -109,16 +204,33 @@ namespace BLL
                 .Project(new BsonDocument{
                     { "_id", 0 },
                     { "Danhsach", 1 },
-                }).ToList();
+                }).First();
+                allKHs = BsonSerializer.Deserialize<IEnumerable<KhachHang>>(rs[0].ToString());
+            }
+            catch
+            {
+                tb.Rows.Add("", "", "", "", "", "");
+                return tb;
+            }
 
+            List<KhachHang> abc = new List<KhachHang>();
+            foreach (var item in allKHs)
+            {
+                String maKh = item.MaKH.ToString();
+                String hoTen = item.Hoten.ToString();
+                Double diem = item.Diem;
+                String capBac;
+                if (diem <= 100) capBac = "Đồng";
+                else if (diem <= 1000)
+                    capBac = "Bạc";
+                else
+                    capBac = "Vàng";
+                String sdt = item.SDT.ToString();
+                String email = item.EmailKH.ToString();
 
-            var filter = Builders<BsonDocument>.Filter.Empty;
-            Console.WriteLine(rs[0].GetValue("Danhsach").AsBsonArray);
-
-            return rs[0].GetValue("Danhsach").AsBsonArray;
-            //.Lookup(lookup)
-            //.Project(Builders<BsonDocument>.Projection.Exclude("ThongtinKH"))
-            //.Unwind("ThongtinKH").ToList();
+                tb.Rows.Add(maKh, hoTen, diem.ToString(), capBac, sdt, email);
+            }
+            return tb;
         }
 
         public Byte Login(NhanVien nhanVien)

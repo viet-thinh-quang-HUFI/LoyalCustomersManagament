@@ -177,6 +177,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogTopKPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogTopKPI.Designer.cs">
+      <DependentUpon>DialogTopKPI.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHeThong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DialogTopKPI.resx">
+      <DependentUpon>DialogTopKPI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHeThong.resx">
       <DependentUpon>frmHeThong.cs</DependentUpon>
     </EmbeddedResource>
