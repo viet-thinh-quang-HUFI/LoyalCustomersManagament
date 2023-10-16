@@ -50,5 +50,11 @@ namespace GUI
             dgSanPham.Columns["id"].Visible = false;
             dgSanPham.Columns["Mota"].Visible = false;
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            frmHoaDon hoadon = new frmHoaDon();
+            hoadon.ShowDialog();
+        }
     }
 }

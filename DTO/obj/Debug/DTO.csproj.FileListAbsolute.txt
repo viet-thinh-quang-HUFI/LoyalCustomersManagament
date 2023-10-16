@@ -76,3 +76,21 @@ C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\bin\Debug\System.Memory.xml
 C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\bin\Debug\System.Numerics.Vectors.xml
 C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\HocTap\NO SQL\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.CopyComplete
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\DTO.dll.config
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\DTO.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\DTO.pdb
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\MongoDB.Bson.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Buffers.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Memory.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Numerics.Vectors.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\MongoDB.Bson.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Buffers.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Memory.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Numerics.Vectors.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.AssemblyReference.cache
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\obj\Debug\DTO.csproj.CopyComplete
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\obj\Debug\DTO.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\DTO\obj\Debug\DTO.pdb

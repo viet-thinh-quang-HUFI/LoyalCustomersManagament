@@ -632,3 +632,8 @@ D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\CircularPr
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\bin\Debug\MongoDB.Driver.Legacy.xml
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmHeThong.resources
 D:\HK1_2023-2024(HK7)\nosql\oj\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmNhanVien.resources
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmNhanVien.resources
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.frmHoaDon.resources
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\obj\Debug\GUI.DialogTopKPI.resources
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\ValidTextLibrary.dll
+F:\DoAnNosql\SQLno\LoyalCustomersManagament\LoyalCustomersManagament\GUI\bin\Debug\ValidTextLibrary.pdb
