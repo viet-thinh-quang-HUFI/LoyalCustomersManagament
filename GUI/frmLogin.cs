@@ -15,6 +15,12 @@ namespace GUI
         public frmLogin()
         {
             InitializeComponent();
+            this.Load += FrmLogin_Load;
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            tbAccountName.Focus();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -54,6 +60,14 @@ namespace GUI
             frmResetPassword f = new frmResetPassword();
             f.Show();
             this.Hide();
+        }
+
+        private void tbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals(Convert.ToChar(13)))
+            {
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }
