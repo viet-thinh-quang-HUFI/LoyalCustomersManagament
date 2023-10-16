@@ -10,6 +10,7 @@ using MongoDB.Bson.Serialization;
 using System.IO;
 using System.Threading.Tasks;
 using MongoDB.Bson.IO;
+using System.Data;
 
 namespace BLL
 {
@@ -35,6 +36,22 @@ namespace BLL
                 .Find(filter)
                 .ToList();
             return sanPhamDAL.GetSanPham();
+        }
+        public DataTable GetALLSP()
+        {
+            DataTable data = new DataTable();
+            data.Columns.Add("MaSP");
+            data.Columns.Add("TenSP");
+            data.Columns.Add("Mahang");
+            data.Columns.Add("Dongia");
+            data.Columns.Add("Soluongton");
+            var filter = Builders<SanPham>.Filter.Empty;
+            var a = sanPhamDAL.GetSanPham().Find(filter).ToList();
+            foreach (var item in a)
+            {
+                data.Rows.Add(item.MaSP, item.TenSP, item.Mahang, item.Dongia, item.Soluongton);
+            }
+            return data;
         }
         public MoTa GetMoTa(string maSP)
         {
